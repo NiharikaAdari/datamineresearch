@@ -8,4 +8,6 @@
 ## synthetic_traces:
 -has the trace python files, message file and trace txts
 **>traces:** has the trace-small and trace-large 
+
+
 **>multiple-traces:** has the synthetic, syntheticSmall, syntheticLarge, and RubelMultiTrace

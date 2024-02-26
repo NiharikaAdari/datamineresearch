@@ -1,5 +1,7 @@
-## reports: previous pdfs/summaries
-## gem5_traces: WIP
+## reports: 
+previous pdfs/summaries
+## gem5_traces: 
+WIP
 -has the jbl file to read in jbl files
 -read in the message file
 

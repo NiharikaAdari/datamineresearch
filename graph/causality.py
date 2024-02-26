@@ -124,6 +124,30 @@ def visualize_graph_pyg(data, initial_nodes, terminating_nodes):
     plt.axis('off')  # Turn off the axis
     plt.show()
 
+"""
+pass in two indices, and check if there is a connection in the graph.
+"""
+def isCausal(node_index1, node_index2, successors_dict):
+    successors_of_node1 = successors_dict.get(node_index1, {}).get('successors', [])
+    successors_of_node2 = successors_dict.get(node_index2, {}).get('successors', [])
+    
+    if node_index1 in successors_of_node2 or node_index2 in successors_of_node1:
+        return True
+    return False
+
+"""
+print if 2 nodes are connected or not.
+"""
+def print_causality_info(node_index1, node_index2, successors_dict):
+    successors_of_node1 = successors_dict.get(node_index1, {}).get('successors', [])
+    successors_of_node2 = successors_dict.get(node_index2, {}).get('successors', [])
+    
+    if node_index1 in successors_of_node2:
+        print(f"Node {node_index2} is causal to Node {node_index1}.")
+    elif node_index2 in successors_of_node1:
+        print(f"Node {node_index1} is causal to Node {node_index2}.")
+    else:
+        print(f"Nodes {node_index1} and {node_index2} are not connected.")
 
 if __name__ == "__main__":
     file_path = "graph/newLarge.msg"  
@@ -133,8 +157,15 @@ if __name__ == "__main__":
     # Print detailed path information for a specific node
     node_index_to_query = 0  # Change this to the node index you're interested in
     print_successor_info(node_index_to_query, successors_dict)
-    print_successor_info(7, successors_dict)
-    print_successor_info(25, successors_dict)
+    # print_successor_info(7, successors_dict)
+    # print_successor_info(25, successors_dict)
+
+    #see if causal
+    node1 = 0
+    node2 = 25
+    print_causality_info(node1, node2, successors_dict)
+    print_causality_info(0, 7, successors_dict)
+
     # Visualize the graph
     visualize_graph_pyg(data, initial_nodes, terminating_nodes)
     print("Graph visualization complete.")

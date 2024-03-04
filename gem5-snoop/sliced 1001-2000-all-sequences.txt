@@ -1,0 +1,4660 @@
+[trace-1001 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1002 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1003 -- cpu0-dcache0
+20 23
+]
+
+[trace-1004 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1005 -- cpu0-dcache0
+20 23
+]
+
+[trace-1006 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1007 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1008 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1009 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1010 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1011 -- cpu0-dcache0
+20 23 20 23 20 23 20 23 20 23 20 23
+]
+
+[trace-1012 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1013 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1014 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1015 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1016 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1017 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1018 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1019 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1020 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1021 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1022 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1023 -- cpu0-dcache0
+20 23
+]
+
+[trace-1024 -- cpu0-dcache0
+10 19
+]
+
+[trace-1025 -- cpu0-dcache0
+20 23
+]
+
+[trace-1026 -- cpu0-dcache0
+20 23
+]
+
+[trace-1027 -- cpu0-dcache0
+20 23
+]
+
+[trace-1028 -- dcache0-l2bus
+21 22
+trace-1028 -- dram-membus
+3 5
+trace-1028 -- l2bus-l2cache
+1 7
+trace-1028 -- l2cache-membus
+4 6
+]
+
+[trace-1029 -- cpu0-dcache0
+20 23
+]
+
+[trace-1030 -- cpu0-dcache0
+20 23
+]
+
+[trace-1031 -- cpu0-icache0
+0 9
+]
+
+[trace-1032 -- dram-membus
+3 5
+trace-1032 -- icache0-l2bus
+2 8
+trace-1032 -- l2bus-l2cache
+1 7
+trace-1032 -- l2cache-membus
+4 6
+]
+
+[trace-1033 -- cpu0-icache0
+0 9
+]
+
+[trace-1034 -- cpu0-icache0
+0 9
+]
+
+[trace-1035 -- cpu0-dcache0
+20 23
+]
+
+[trace-1036 -- cpu0-dcache0
+20 23
+]
+
+[trace-1037 -- cpu0-dcache0
+20 23
+]
+
+[trace-1038 -- dcache0-l2bus
+21 22
+trace-1038 -- dram-membus
+3 5
+trace-1038 -- l2bus-l2cache
+1 7
+trace-1038 -- l2cache-membus
+4 6
+]
+
+[trace-1039 -- cpu0-dcache0
+20 23
+]
+
+[trace-1040 -- cpu0-dcache0
+20 23
+]
+
+[trace-1041 -- cpu0-dcache0
+20 23
+trace-1041 -- dcache0-l2bus
+21 22
+trace-1041 -- dram-membus
+3 5
+trace-1041 -- l2bus-l2cache
+1 7
+trace-1041 -- l2cache-membus
+4 6
+]
+
+[trace-1042 -- cpu0-dcache0
+10 19
+]
+
+[trace-1043 -- dcache0-l2bus
+12 18
+trace-1043 -- dram-membus
+13 15
+trace-1043 -- l2bus-l2cache
+11 17
+trace-1043 -- l2cache-membus
+14 16
+]
+
+[trace-1044 -- cpu0-dcache0
+20 23
+]
+
+[trace-1045 -- cpu0-dcache0
+20 23
+]
+
+[trace-1046 -- cpu0-dcache0
+20 23
+]
+
+[trace-1047 -- dcache0-l2bus
+21 22
+trace-1047 -- dram-membus
+3 5
+trace-1047 -- l2bus-l2cache
+1 7
+trace-1047 -- l2cache-membus
+4 6
+]
+
+[trace-1048 -- cpu0-dcache0
+20 23
+]
+
+[trace-1049 -- cpu0-dcache0
+20 23
+]
+
+[trace-1050 -- cpu0-dcache0
+20 23
+]
+
+[trace-1051 -- cpu0-dcache0
+10 19
+]
+
+[trace-1052 -- cpu0-dcache0
+20 23
+]
+
+[trace-1053 -- cpu0-dcache0
+20 23
+]
+
+[trace-1054 -- cpu0-dcache0
+20 23
+]
+
+[trace-1055 -- cpu0-dcache0
+20 23
+]
+
+[trace-1056 -- cpu0-dcache0
+20 23
+trace-1056 -- dcache0-l2bus
+21 22
+trace-1056 -- dram-membus
+3 5
+trace-1056 -- l2bus-l2cache
+1 7
+trace-1056 -- l2cache-membus
+4 6
+]
+
+[trace-1057 -- cpu0-dcache0
+20 23
+]
+
+[trace-1058 -- cpu0-dcache0
+10 19
+]
+
+[trace-1059 -- cpu0-dcache0
+20 23
+trace-1059 -- dcache0-l2bus
+21 22
+trace-1059 -- dram-membus
+3 5
+trace-1059 -- l2bus-l2cache
+1 7
+trace-1059 -- l2cache-membus
+4 6
+]
+
+[trace-1060 -- cpu0-dcache0
+20 23
+]
+
+[trace-1061 -- cpu0-dcache0
+20 23
+]
+
+[trace-1062 -- dcache0-l2bus
+21 22
+trace-1062 -- dram-membus
+3 5
+trace-1062 -- l2bus-l2cache
+1 7
+trace-1062 -- l2cache-membus
+4 6
+]
+
+[trace-1063 -- cpu0-dcache0
+20 23
+]
+
+[trace-1064 -- cpu0-dcache0
+20 23
+]
+
+[trace-1065 -- cpu0-dcache0
+20 23
+]
+
+[trace-1066 -- cpu0-dcache0
+10 19
+]
+
+[trace-1067 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1068 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1069 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1070 -- cpu0-icache0
+0 9
+]
+
+[trace-1071 -- cpu0-icache0
+0 9
+]
+
+[trace-1072 -- cpu0-dcache0
+20 23
+]
+
+[trace-1073 -- cpu0-icache0
+0 9
+]
+
+[trace-1074 -- cpu0-icache0
+0 9
+]
+
+[trace-1075 -- cpu0-dcache0
+20 23
+]
+
+[trace-1076 -- cpu0-icache0
+0 9
+]
+
+[trace-1077 -- cpu0-icache0
+0 9
+]
+
+[trace-1078 -- cpu0-icache0
+0 9
+]
+
+[trace-1079 -- cpu0-dcache0
+20 23
+]
+
+[trace-1080 -- cpu0-icache0
+0 9
+]
+
+[trace-1081 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1082 -- cpu0-dcache0
+20 23
+]
+
+[trace-1083 -- cpu0-icache0
+0 9
+]
+
+[trace-1084 -- cpu0-dcache0
+20 23
+]
+
+[trace-1085 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1086 -- cpu0-dcache0
+20 23
+]
+
+[trace-1087 -- cpu0-icache0
+0 9
+]
+
+[trace-1088 -- cpu0-dcache0
+20 23
+]
+
+[trace-1089 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1090 -- cpu0-icache0
+0 9
+]
+
+[trace-1091 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1092 -- cpu0-icache0
+0 9
+]
+
+[trace-1093 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1094 -- cpu0-icache0
+0 9
+]
+
+[trace-1095 -- cpu0-icache0
+0 9
+]
+
+[trace-1096 -- cpu0-icache0
+0 9
+]
+
+[trace-1097 -- cpu0-dcache0
+20 23
+]
+
+[trace-1098 -- cpu0-icache0
+0 9
+]
+
+[trace-1099 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1100 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1101 -- cpu0-icache0
+0 9
+]
+
+[trace-1102 -- cpu0-icache0
+0 9
+]
+
+[trace-1103 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1104 -- cpu0-icache0
+0 9
+]
+
+[trace-1105 -- dram-membus
+3 5
+trace-1105 -- icache0-l2bus
+2 8
+trace-1105 -- l2bus-l2cache
+1 7
+trace-1105 -- l2cache-membus
+4 6
+]
+
+[trace-1106 -- cpu0-dcache0
+20 23 10 19
+]
+
+[trace-1107 -- cpu0-icache0
+0 9
+]
+
+[trace-1108 -- cpu0-icache0
+0 9
+]
+
+[trace-1109 -- cpu0-dcache0
+10 19
+]
+
+[trace-1110 -- dcache0-l2bus
+12 18
+trace-1110 -- dram-membus
+13 15
+trace-1110 -- l2bus-l2cache
+11 17
+trace-1110 -- l2cache-membus
+14 16
+]
+
+[trace-1111 -- cpu0-icache0
+0 9
+trace-1111 -- dram-membus
+3 5
+trace-1111 -- icache0-l2bus
+2 8
+trace-1111 -- l2bus-l2cache
+1 7
+trace-1111 -- l2cache-membus
+4 6
+]
+
+[trace-1112 -- cpu0-icache0
+0 9
+]
+
+[trace-1113 -- cpu0-icache0
+0 9
+]
+
+[trace-1114 -- cpu0-icache0
+0 9
+]
+
+[trace-1115 -- cpu0-icache0
+0 9
+]
+
+[trace-1116 -- cpu0-dcache0
+10 19
+]
+
+[trace-1117 -- dcache0-l2bus
+12 18
+trace-1117 -- dram-membus
+13 15
+trace-1117 -- l2bus-l2cache
+11 17
+trace-1117 -- l2cache-membus
+14 16
+]
+
+[trace-1118 -- cpu0-icache0
+0 9
+]
+
+[trace-1119 -- cpu0-icache0
+0 9
+]
+
+[trace-1120 -- cpu0-icache0
+0 9
+]
+
+[trace-1121 -- cpu0-dcache0
+10 19
+]
+
+[trace-1122 -- cpu0-icache0
+0 9
+]
+
+[trace-1123 -- cpu0-icache0
+0 9
+]
+
+[trace-1124 -- cpu0-icache0
+0 9
+]
+
+[trace-1125 -- cpu0-dcache0
+10 19
+]
+
+[trace-1126 -- cpu0-icache0
+0 9
+]
+
+[trace-1127 -- cpu0-icache0
+0 9
+]
+
+[trace-1128 -- cpu0-icache0
+0 9
+]
+
+[trace-1129 -- cpu0-icache0
+0 9
+]
+
+[trace-1130 -- cpu0-dcache0
+10 19
+]
+
+[trace-1131 -- cpu0-icache0
+0 9
+]
+
+[trace-1132 -- cpu0-dcache0
+20 23
+]
+
+[trace-1133 -- cpu0-icache0
+0 9
+]
+
+[trace-1134 -- cpu0-icache0
+0 9
+trace-1134 -- dram-membus
+3 5
+trace-1134 -- icache0-l2bus
+2 8
+trace-1134 -- l2bus-l2cache
+1 7
+trace-1134 -- l2cache-membus
+4 6
+]
+
+[trace-1135 -- cpu0-icache0
+0 9
+]
+
+[trace-1136 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1137 -- cpu0-dcache0
+10 19
+]
+
+[trace-1138 -- cpu0-icache0
+0 9
+]
+
+[trace-1139 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1140 -- cpu0-icache0
+0 9
+]
+
+[trace-1141 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1142 -- cpu0-icache0
+0 9
+]
+
+[trace-1143 -- cpu0-icache0
+0 9
+]
+
+[trace-1144 -- cpu0-dcache0
+10 19
+]
+
+[trace-1145 -- cpu0-icache0
+0 9
+]
+
+[trace-1146 -- cpu0-icache0
+0 9
+]
+
+[trace-1147 -- cpu0-dcache0
+10 19
+]
+
+[trace-1148 -- cpu0-icache0
+0 9
+]
+
+[trace-1149 -- dram-membus
+3 5
+trace-1149 -- icache0-l2bus
+2 8
+trace-1149 -- l2bus-l2cache
+1 7
+trace-1149 -- l2cache-membus
+4 6
+]
+
+[trace-1150 -- cpu0-icache0
+0 9
+]
+
+[trace-1151 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1152 -- cpu0-dcache0
+20 23
+]
+
+[trace-1153 -- cpu0-icache0
+0 9
+]
+
+[trace-1154 -- cpu0-icache0
+0 9 0 9
+trace-1154 -- dram-membus
+3 5
+trace-1154 -- icache0-l2bus
+2 8
+trace-1154 -- l2bus-l2cache
+1 7
+trace-1154 -- l2cache-membus
+4 6
+]
+
+[trace-1155 -- cpu0-icache0
+0 9
+]
+
+[trace-1156 -- cpu0-dcache0
+20 23
+]
+
+[trace-1157 -- cpu0-icache0
+0 9
+]
+
+[trace-1158 -- cpu0-icache0
+0 9
+]
+
+[trace-1159 -- cpu0-dcache0
+20 23
+]
+
+[trace-1160 -- cpu0-icache0
+0 9
+]
+
+[trace-1161 -- cpu0-icache0
+0 9
+]
+
+[trace-1162 -- cpu0-dcache0
+20 23
+]
+
+[trace-1163 -- dcache0-l2bus
+21 22
+trace-1163 -- dram-membus
+3 5
+trace-1163 -- l2bus-l2cache
+1 7
+trace-1163 -- l2cache-membus
+4 6
+]
+
+[trace-1164 -- cpu0-icache0
+0 9
+]
+
+[trace-1165 -- cpu0-dcache0
+10 19
+]
+
+[trace-1166 -- dcache0-l2bus
+12 18
+trace-1166 -- dram-membus
+13 15
+trace-1166 -- l2bus-l2cache
+11 17
+trace-1166 -- l2cache-membus
+14 16
+]
+
+[trace-1167 -- cpu0-icache0
+0 9
+]
+
+[trace-1168 -- cpu0-dcache0
+20 23
+]
+
+[trace-1169 -- cpu0-icache0
+0 9
+]
+
+[trace-1170 -- cpu0-dcache0
+20 23
+]
+
+[trace-1171 -- cpu0-icache0
+0 9
+]
+
+[trace-1172 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1173 -- cpu0-icache0
+0 9
+]
+
+[trace-1174 -- cpu0-icache0
+0 9
+]
+
+[trace-1175 -- cpu0-icache0
+0 9
+]
+
+[trace-1176 -- cpu0-dcache0
+10 19
+]
+
+[trace-1177 -- cpu0-icache0
+0 9
+]
+
+[trace-1178 -- cpu0-icache0
+0 9
+]
+
+[trace-1179 -- cpu0-icache0
+0 9
+]
+
+[trace-1180 -- cpu0-icache0
+0 9
+]
+
+[trace-1181 -- cpu0-icache0
+0 9
+]
+
+[trace-1182 -- cpu0-icache0
+0 9
+]
+
+[trace-1183 -- cpu0-dcache0
+20 23
+]
+
+[trace-1184 -- cpu0-icache0
+0 9
+trace-1184 -- dram-membus
+3 5
+trace-1184 -- icache0-l2bus
+2 8
+trace-1184 -- l2bus-l2cache
+1 7
+trace-1184 -- l2cache-membus
+4 6
+]
+
+[trace-1185 -- cpu0-icache0
+0 9
+]
+
+[trace-1186 -- cpu0-icache0
+0 9
+]
+
+[trace-1187 -- cpu0-icache0
+0 9
+]
+
+[trace-1188 -- cpu0-icache0
+0 9
+]
+
+[trace-1189 -- cpu0-icache0
+0 9
+]
+
+[trace-1190 -- cpu0-icache0
+0 9
+]
+
+[trace-1191 -- cpu0-dcache0
+10 19
+]
+
+[trace-1192 -- cpu0-icache0
+0 9
+]
+
+[trace-1193 -- cpu0-dcache0
+10 19
+]
+
+[trace-1194 -- cpu0-icache0
+0 9
+]
+
+[trace-1195 -- cpu0-icache0
+0 9
+]
+
+[trace-1196 -- cpu0-dcache0
+10 19
+]
+
+[trace-1197 -- cpu0-dcache0
+10 19
+]
+
+[trace-1198 -- cpu0-icache0
+0 9
+]
+
+[trace-1199 -- cpu0-dcache0
+20 23
+]
+
+[trace-1200 -- cpu0-icache0
+0 9
+]
+
+[trace-1201 -- cpu0-icache0
+0 9
+]
+
+[trace-1202 -- cpu0-icache0
+0 9
+]
+
+[trace-1203 -- cpu0-icache0
+0 9
+]
+
+[trace-1204 -- cpu0-dcache0
+10 19
+]
+
+[trace-1205 -- cpu0-icache0
+0 9
+]
+
+[trace-1206 -- cpu0-icache0
+0 9
+trace-1206 -- dram-membus
+3 5
+trace-1206 -- icache0-l2bus
+2 8
+trace-1206 -- l2bus-l2cache
+1 7
+trace-1206 -- l2cache-membus
+4 6
+]
+
+[trace-1207 -- cpu0-icache0
+0 9
+]
+
+[trace-1208 -- cpu0-icache0
+0 9
+]
+
+[trace-1209 -- cpu0-dcache0
+20 23
+]
+
+[trace-1210 -- cpu0-icache0
+0 9
+]
+
+[trace-1211 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1212 -- cpu0-icache0
+0 9
+]
+
+[trace-1213 -- cpu0-icache0
+0 9
+]
+
+[trace-1214 -- cpu0-icache0
+0 9
+]
+
+[trace-1215 -- cpu0-icache0
+0 9
+]
+
+[trace-1216 -- cpu0-dcache0
+10 19
+]
+
+[trace-1217 -- dcache0-l2bus
+12 18
+trace-1217 -- dram-membus
+13 15
+trace-1217 -- l2bus-l2cache
+11 17
+trace-1217 -- l2cache-membus
+14 16
+]
+
+[trace-1218 -- cpu0-icache0
+0 9
+]
+
+[trace-1219 -- cpu0-icache0
+0 9
+]
+
+[trace-1220 -- cpu0-dcache0
+10 19
+]
+
+[trace-1221 -- cpu0-icache0
+0 9
+]
+
+[trace-1222 -- cpu0-icache0
+0 9
+]
+
+[trace-1223 -- cpu0-dcache0
+10 19
+]
+
+[trace-1224 -- cpu0-dcache0
+10 19
+]
+
+[trace-1225 -- cpu0-icache0
+0 9
+]
+
+[trace-1226 -- cpu0-dcache0
+10 19
+]
+
+[trace-1227 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1228 -- dram-membus
+3 5
+trace-1228 -- icache0-l2bus
+2 8
+trace-1228 -- l2bus-l2cache
+1 7
+trace-1228 -- l2cache-membus
+4 6
+]
+
+[trace-1229 -- cpu0-icache0
+0 9
+]
+
+[trace-1230 -- cpu0-dcache0
+10 19
+]
+
+[trace-1231 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1232 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1233 -- cpu0-dcache0
+10 19
+]
+
+[trace-1234 -- cpu0-icache0
+0 9 0 9 0 9
+]
+
+[trace-1235 -- cpu0-dcache0
+10 19
+]
+
+[trace-1236 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1237 -- cpu0-dcache0
+10 19
+]
+
+[trace-1238 -- cpu0-dcache0
+10 19
+]
+
+[trace-1239 -- cpu0-dcache0
+10 19
+]
+
+[trace-1240 -- cpu0-icache0
+0 9
+]
+
+[trace-1241 -- cpu0-icache0
+0 9
+]
+
+[trace-1242 -- cpu0-dcache0
+20 23
+trace-1242 -- dcache0-l2bus
+21 22
+trace-1242 -- dram-membus
+3 5
+trace-1242 -- l2bus-l2cache
+1 7
+trace-1242 -- l2cache-membus
+4 6
+]
+
+[trace-1243 -- cpu0-icache0
+0 9
+]
+
+[trace-1244 -- cpu0-icache0
+0 9
+trace-1244 -- dram-membus
+3 5
+trace-1244 -- icache0-l2bus
+2 8
+trace-1244 -- l2bus-l2cache
+1 7
+trace-1244 -- l2cache-membus
+4 6
+]
+
+[trace-1245 -- cpu0-dcache0
+10 19
+]
+
+[trace-1246 -- cpu0-icache0
+0 9
+]
+
+[trace-1247 -- cpu0-icache0
+0 9
+]
+
+[trace-1248 -- cpu0-dcache0
+10 19
+trace-1248 -- dcache0-l2bus
+12 18
+trace-1248 -- dram-membus
+13 15
+trace-1248 -- l2bus-l2cache
+11 17
+trace-1248 -- l2cache-membus
+14 16
+]
+
+[trace-1249 -- cpu0-icache0
+0 9
+]
+
+[trace-1250 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1251 -- cpu0-dcache0
+10 19
+]
+
+[trace-1252 -- cpu0-icache0
+0 9
+]
+
+[trace-1253 -- cpu0-icache0
+0 9
+]
+
+[trace-1254 -- cpu0-icache0
+0 9
+]
+
+[trace-1255 -- cpu0-icache0
+0 9
+]
+
+[trace-1256 -- cpu0-dcache0
+10 19
+]
+
+[trace-1257 -- dcache0-l2bus
+12 18
+trace-1257 -- dram-membus
+13 15
+trace-1257 -- l2bus-l2cache
+11 17
+trace-1257 -- l2cache-membus
+14 16
+]
+
+[trace-1258 -- cpu0-icache0
+0 9
+]
+
+[trace-1259 -- cpu0-dcache0
+20 23
+]
+
+[trace-1260 -- cpu0-icache0
+0 9
+]
+
+[trace-1261 -- cpu0-icache0
+0 9
+]
+
+[trace-1262 -- cpu0-icache0
+0 9
+]
+
+[trace-1263 -- cpu0-icache0
+0 9
+]
+
+[trace-1264 -- cpu0-icache0
+0 9
+]
+
+[trace-1265 -- cpu0-icache0
+0 9
+]
+
+[trace-1266 -- cpu0-dcache0
+20 23
+]
+
+[trace-1267 -- cpu0-icache0
+0 9
+]
+
+[trace-1268 -- cpu0-icache0
+0 9
+trace-1268 -- dram-membus
+3 5
+trace-1268 -- icache0-l2bus
+2 8
+trace-1268 -- l2bus-l2cache
+1 7
+trace-1268 -- l2cache-membus
+4 6
+]
+
+[trace-1269 -- cpu0-icache0
+0 9
+]
+
+[trace-1270 -- cpu0-icache0
+0 9
+]
+
+[trace-1271 -- cpu0-dcache0
+10 19
+]
+
+[trace-1272 -- cpu0-icache0
+0 9
+]
+
+[trace-1273 -- cpu0-icache0
+0 9
+]
+
+[trace-1274 -- cpu0-dcache0
+10 19
+]
+
+[trace-1275 -- dcache0-l2bus
+12 18
+trace-1275 -- dram-membus
+13 15
+trace-1275 -- l2bus-l2cache
+11 17
+trace-1275 -- l2cache-membus
+14 16
+]
+
+[trace-1276 -- cpu0-icache0
+0 9
+]
+
+[trace-1277 -- cpu0-icache0
+0 9
+]
+
+[trace-1278 -- cpu0-dcache0
+10 19
+]
+
+[trace-1279 -- dcache0-l2bus
+12 18
+trace-1279 -- dram-membus
+13 15
+trace-1279 -- l2bus-l2cache
+11 17
+trace-1279 -- l2cache-membus
+14 16
+]
+
+[trace-1280 -- cpu0-icache0
+0 9
+]
+
+[trace-1281 -- cpu0-icache0
+0 9
+]
+
+[trace-1282 -- cpu0-dcache0
+10 19
+trace-1282 -- dcache0-l2bus
+12 18
+trace-1282 -- dram-membus
+13 15
+trace-1282 -- l2bus-l2cache
+11 17
+trace-1282 -- l2cache-membus
+14 16
+]
+
+[trace-1283 -- cpu0-icache0
+0 9
+]
+
+[trace-1284 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1285 -- cpu0-icache0
+0 9
+]
+
+[trace-1286 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1287 -- cpu0-dcache0
+10 19
+]
+
+[trace-1288 -- dcache0-l2bus
+12 18
+trace-1288 -- dram-membus
+13 15
+trace-1288 -- l2bus-l2cache
+11 17
+trace-1288 -- l2cache-membus
+14 16
+]
+
+[trace-1289 -- cpu0-icache0
+0 9
+]
+
+[trace-1290 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1291 -- cpu0-icache0
+0 9
+]
+
+[trace-1292 -- cpu0-icache0
+0 9 0 9
+trace-1292 -- dram-membus
+3 5
+trace-1292 -- icache0-l2bus
+2 8
+trace-1292 -- l2bus-l2cache
+1 7
+trace-1292 -- l2cache-membus
+4 6
+]
+
+[trace-1293 -- icache0-l2bus
+25
+trace-1293 -- l2bus-l2cache
+24
+]
+
+[trace-1294 -- cpu0-dcache0
+10 19
+]
+
+[trace-1295 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1296 -- cpu0-icache0
+0 9
+]
+
+[trace-1297 -- cpu0-icache0
+0 9
+]
+
+[trace-1298 -- cpu0-dcache0
+10 19
+]
+
+[trace-1299 -- cpu0-icache0
+0 9
+]
+
+[trace-1300 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1301 -- cpu0-icache0
+0 9
+]
+
+[trace-1302 -- cpu0-icache0
+0 9
+]
+
+[trace-1303 -- cpu0-icache0
+0 9
+]
+
+[trace-1304 -- cpu0-icache0
+0 9
+]
+
+[trace-1305 -- cpu0-icache0
+0 9
+]
+
+[trace-1306 -- cpu0-icache0
+0 9
+]
+
+[trace-1307 -- cpu0-icache0
+0 9
+]
+
+[trace-1308 -- cpu0-icache0
+0 9
+]
+
+[trace-1309 -- cpu0-icache0
+0 9
+]
+
+[trace-1310 -- cpu0-dcache0
+20 23
+]
+
+[trace-1311 -- dcache0-l2bus
+21 22
+trace-1311 -- dram-membus
+3 5
+trace-1311 -- l2bus-l2cache
+1 7
+trace-1311 -- l2cache-membus
+4 6
+]
+
+[trace-1312 -- cpu0-icache0
+0 9
+]
+
+[trace-1313 -- cpu0-icache0
+0 9
+]
+
+[trace-1314 -- cpu0-icache0
+0 9
+]
+
+[trace-1315 -- cpu0-icache0
+0 9
+]
+
+[trace-1316 -- dram-membus
+3 5
+trace-1316 -- icache0-l2bus
+2 8
+trace-1316 -- l2bus-l2cache
+1 7
+trace-1316 -- l2cache-membus
+4 6
+]
+
+[trace-1317 -- cpu0-dcache0
+20 23
+]
+
+[trace-1318 -- cpu0-icache0
+0 9
+]
+
+[trace-1319 -- cpu0-icache0
+0 9
+]
+
+[trace-1320 -- cpu0-icache0
+0 9
+]
+
+[trace-1321 -- cpu0-icache0
+0 9
+]
+
+[trace-1322 -- cpu0-dcache0
+10 19
+]
+
+[trace-1323 -- cpu0-icache0
+0 9
+]
+
+[trace-1324 -- cpu0-dcache0
+20 23
+]
+
+[trace-1325 -- cpu0-icache0
+0 9
+]
+
+[trace-1326 -- cpu0-icache0
+0 9
+]
+
+[trace-1327 -- cpu0-icache0
+0 9
+]
+
+[trace-1328 -- cpu0-icache0
+0 9
+]
+
+[trace-1329 -- cpu0-icache0
+0 9 0 9 0 9
+]
+
+[trace-1330 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1331 -- cpu0-icache0
+0 9 0 9 0 9 0 9
+]
+
+[trace-1332 -- cpu0-dcache0
+20 23
+]
+
+[trace-1333 -- dcache0-l2bus
+21 22
+trace-1333 -- dram-membus
+3 5
+trace-1333 -- l2bus-l2cache
+1 7
+trace-1333 -- l2cache-membus
+4 6
+]
+
+[trace-1334 -- cpu0-icache0
+0 9 0 9 0 9
+]
+
+[trace-1335 -- cpu0-icache0
+0 9
+]
+
+[trace-1336 -- cpu0-icache0
+0 9
+]
+
+[trace-1337 -- dram-membus
+3 5
+trace-1337 -- icache0-l2bus
+2 8
+trace-1337 -- l2bus-l2cache
+1 7
+trace-1337 -- l2cache-membus
+4 6
+]
+
+[trace-1338 -- cpu0-dcache0
+20 23
+]
+
+[trace-1339 -- cpu0-icache0
+0 9
+]
+
+[trace-1340 -- cpu0-icache0
+0 9
+trace-1340 -- dram-membus
+3 5
+trace-1340 -- icache0-l2bus
+2 8
+trace-1340 -- l2bus-l2cache
+1 7
+trace-1340 -- l2cache-membus
+4 6
+]
+
+[trace-1341 -- cpu0-icache0
+0 9
+]
+
+[trace-1342 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1343 -- cpu0-dcache0
+10 19
+]
+
+[trace-1344 -- cpu0-icache0
+0 9
+]
+
+[trace-1345 -- cpu0-dcache0
+20 23
+trace-1345 -- dcache0-l2bus
+21 22
+trace-1345 -- dram-membus
+3 5
+trace-1345 -- l2bus-l2cache
+1 7
+trace-1345 -- l2cache-membus
+4 6
+]
+
+[trace-1346 -- cpu0-icache0
+0 9
+]
+
+[trace-1347 -- cpu0-icache0
+0 9
+]
+
+[trace-1348 -- cpu0-icache0
+0 9
+]
+
+[trace-1349 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1350 -- cpu0-dcache0
+20 23
+]
+
+[trace-1351 -- cpu0-icache0
+0 9
+]
+
+[trace-1352 -- cpu0-icache0
+0 9
+]
+
+[trace-1353 -- dram-membus
+3 5
+trace-1353 -- icache0-l2bus
+2 8
+trace-1353 -- l2bus-l2cache
+1 7
+trace-1353 -- l2cache-membus
+4 6
+]
+
+[trace-1354 -- cpu0-dcache0
+20 23
+]
+
+[trace-1355 -- cpu0-icache0
+0 9
+]
+
+[trace-1356 -- cpu0-icache0
+0 9
+]
+
+[trace-1357 -- cpu0-dcache0
+10 19
+]
+
+[trace-1358 -- cpu0-icache0
+0 9
+]
+
+[trace-1359 -- cpu0-icache0
+0 9 0 9
+trace-1359 -- dram-membus
+3 5
+trace-1359 -- icache0-l2bus
+2 8
+trace-1359 -- l2bus-l2cache
+1 7
+trace-1359 -- l2cache-membus
+4 6
+]
+
+[trace-1360 -- cpu0-dcache0
+10 19
+]
+
+[trace-1361 -- cpu0-icache0
+0 9
+]
+
+[trace-1362 -- cpu0-dcache0
+20 23
+]
+
+[trace-1363 -- cpu0-icache0
+0 9
+]
+
+[trace-1364 -- cpu0-icache0
+0 9
+]
+
+[trace-1365 -- cpu0-icache0
+0 9
+]
+
+[trace-1366 -- cpu0-dcache0
+20 23
+]
+
+[trace-1367 -- cpu0-icache0
+0 9
+]
+
+[trace-1368 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1369 -- cpu0-dcache0
+20 23
+]
+
+[trace-1370 -- cpu0-icache0
+0 9
+]
+
+[trace-1371 -- cpu0-icache0
+0 9
+]
+
+[trace-1372 -- cpu0-icache0
+0 9
+]
+
+[trace-1373 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1374 -- cpu0-dcache0
+10 19
+]
+
+[trace-1375 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1376 -- cpu0-dcache0
+20 23
+]
+
+[trace-1377 -- cpu0-icache0
+0 9
+]
+
+[trace-1378 -- cpu0-icache0
+0 9
+]
+
+[trace-1379 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1380 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1381 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1382 -- cpu0-dcache0
+20 23
+]
+
+[trace-1383 -- dcache0-l2bus
+21 22
+trace-1383 -- dram-membus
+3 5
+trace-1383 -- l2bus-l2cache
+1 7
+trace-1383 -- l2cache-membus
+4 6
+]
+
+[trace-1384 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1385 -- cpu0-icache0
+0 9
+]
+
+[trace-1386 -- cpu0-icache0
+0 9
+trace-1386 -- dram-membus
+3 5
+trace-1386 -- icache0-l2bus
+2 8
+trace-1386 -- l2bus-l2cache
+1 7
+trace-1386 -- l2cache-membus
+4 6
+]
+
+[trace-1387 -- icache0-l2bus
+25
+trace-1387 -- l2bus-l2cache
+24
+]
+
+[trace-1388 -- cpu0-dcache0
+20 23
+]
+
+[trace-1389 -- cpu0-icache0
+0 9
+]
+
+[trace-1390 -- cpu0-icache0
+0 9 0 9 0 9 0 9
+]
+
+[trace-1391 -- cpu0-dcache0
+20 23
+]
+
+[trace-1392 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1393 -- cpu0-icache0
+0 9 0 9 0 9 0 9
+]
+
+[trace-1394 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1395 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1396 -- cpu0-icache0
+0 9 0 9 0 9
+]
+
+[trace-1397 -- cpu0-dcache0
+20 23
+]
+
+[trace-1398 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1399 -- cpu0-dcache0
+20 23
+trace-1399 -- dcache0-l2bus
+21 22
+trace-1399 -- dram-membus
+3 5
+trace-1399 -- l2bus-l2cache
+1 7
+trace-1399 -- l2cache-membus
+4 6
+]
+
+[trace-1400 -- cpu0-dcache0
+20 23
+]
+
+[trace-1401 -- cpu0-icache0
+0 9
+]
+
+[trace-1402 -- cpu0-dcache0
+20 23
+]
+
+[trace-1403 -- cpu0-icache0
+0 9
+]
+
+[trace-1404 -- cpu0-dcache0
+20 23
+]
+
+[trace-1405 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1406 -- cpu0-icache0
+0 9
+]
+
+[trace-1407 -- cpu0-icache0
+0 9
+]
+
+[trace-1408 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1409 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1410 -- cpu0-dcache0
+20 23
+]
+
+[trace-1411 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1412 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1413 -- cpu0-dcache0
+20 23
+]
+
+[trace-1414 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1415 -- cpu0-dcache0
+20 23
+]
+
+[trace-1416 -- cpu0-dcache0
+20 23
+]
+
+[trace-1417 -- cpu0-dcache0
+20 23
+]
+
+[trace-1418 -- cpu0-icache0
+0 9
+]
+
+[trace-1419 -- cpu0-dcache0
+20 23
+]
+
+[trace-1420 -- cpu0-icache0
+0 9
+]
+
+[trace-1421 -- cpu0-icache0
+0 9
+]
+
+[trace-1422 -- cpu0-dcache0
+10 19
+]
+
+[trace-1423 -- cpu0-icache0
+0 9
+]
+
+[trace-1424 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1425 -- cpu0-dcache0
+10 19
+]
+
+[trace-1426 -- cpu0-icache0
+0 9
+]
+
+[trace-1427 -- cpu0-dcache0
+20 23
+trace-1427 -- dcache0-l2bus
+21 22
+trace-1427 -- dram-membus
+3 5
+trace-1427 -- l2bus-l2cache
+1 7
+trace-1427 -- l2cache-membus
+4 6
+]
+
+[trace-1428 -- cpu0-icache0
+0 9
+]
+
+[trace-1429 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1430 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1431 -- cpu0-dcache0
+20 23
+]
+
+[trace-1432 -- cpu0-icache0
+0 9 0 9 0 9 0 9 0 9
+]
+
+[trace-1433 -- cpu0-icache0
+0 9 0 9 0 9 0 9
+]
+
+[trace-1434 -- cpu0-dcache0
+20 23
+]
+
+[trace-1435 -- cpu0-icache0
+0 9 0 9 0 9 0 9
+]
+
+[trace-1436 -- cpu0-dcache0
+20 23
+]
+
+[trace-1437 -- cpu0-dcache0
+20 23
+]
+
+[trace-1438 -- cpu0-dcache0
+20 23
+]
+
+[trace-1439 -- cpu0-dcache0
+20 23
+]
+
+[trace-1440 -- cpu0-dcache0
+20 23
+]
+
+[trace-1441 -- cpu0-dcache0
+20 23
+trace-1441 -- dcache0-l2bus
+21 22
+trace-1441 -- dram-membus
+3 5
+trace-1441 -- l2bus-l2cache
+1 7
+trace-1441 -- l2cache-membus
+4 6
+]
+
+[trace-1442 -- cpu0-dcache0
+20 23
+]
+
+[trace-1443 -- cpu0-icache0
+0 9 0 9
+trace-1443 -- dram-membus
+3 5
+trace-1443 -- icache0-l2bus
+2 8
+trace-1443 -- l2bus-l2cache
+1 7
+trace-1443 -- l2cache-membus
+4 6
+]
+
+[trace-1444 -- cpu0-dcache0
+20 23
+]
+
+[trace-1445 -- cpu0-icache0
+0 9
+]
+
+[trace-1446 -- cpu0-icache0
+0 9
+]
+
+[trace-1447 -- cpu0-dcache0
+10 19
+]
+
+[trace-1448 -- cpu0-icache0
+0 9
+]
+
+[trace-1449 -- cpu0-dcache0
+10 19
+]
+
+[trace-1450 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1451 -- cpu0-dcache0
+20 23
+]
+
+[trace-1452 -- cpu0-icache0
+0 9
+]
+
+[trace-1453 -- cpu0-icache0
+0 9
+]
+
+[trace-1454 -- cpu0-icache0
+0 9
+]
+
+[trace-1455 -- cpu0-icache0
+0 9 0 9 0 9
+]
+
+[trace-1456 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1457 -- cpu0-icache0
+0 9 0 9 0 9 0 9
+]
+
+[trace-1458 -- cpu0-dcache0
+20 23
+]
+
+[trace-1459 -- cpu0-icache0
+0 9 0 9 0 9
+]
+
+[trace-1460 -- cpu0-icache0
+0 9
+]
+
+[trace-1461 -- cpu0-icache0
+0 9
+]
+
+[trace-1462 -- dram-membus
+3 5
+trace-1462 -- icache0-l2bus
+2 8
+trace-1462 -- l2bus-l2cache
+1 7
+trace-1462 -- l2cache-membus
+4 6
+]
+
+[trace-1463 -- cpu0-dcache0
+20 23
+]
+
+[trace-1464 -- cpu0-icache0
+0 9
+]
+
+[trace-1465 -- cpu0-icache0
+0 9
+]
+
+[trace-1466 -- cpu0-icache0
+0 9
+]
+
+[trace-1467 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1468 -- cpu0-dcache0
+10 19
+]
+
+[trace-1469 -- cpu0-icache0
+0 9
+]
+
+[trace-1470 -- cpu0-dcache0
+20 23
+]
+
+[trace-1471 -- cpu0-icache0
+0 9
+]
+
+[trace-1472 -- cpu0-icache0
+0 9
+]
+
+[trace-1473 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1474 -- cpu0-icache0
+0 9 0 9 0 9
+]
+
+[trace-1475 -- cpu0-dcache0
+20 23
+]
+
+[trace-1476 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1477 -- cpu0-icache0
+0 9
+]
+
+[trace-1478 -- cpu0-dcache0
+20 23
+]
+
+[trace-1479 -- cpu0-icache0
+0 9
+]
+
+[trace-1480 -- cpu0-icache0
+0 9
+]
+
+[trace-1481 -- cpu0-icache0
+0 9
+]
+
+[trace-1482 -- cpu0-dcache0
+20 23
+]
+
+[trace-1483 -- cpu0-icache0
+0 9
+]
+
+[trace-1484 -- cpu0-dcache0
+20 23
+]
+
+[trace-1485 -- cpu0-icache0
+0 9
+]
+
+[trace-1486 -- cpu0-icache0
+0 9
+]
+
+[trace-1487 -- cpu0-icache0
+0 9
+]
+
+[trace-1488 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1489 -- cpu0-dcache0
+10 19
+]
+
+[trace-1490 -- cpu0-icache0
+0 9
+]
+
+[trace-1491 -- cpu0-dcache0
+20 23
+trace-1491 -- dcache0-l2bus
+21 22
+trace-1491 -- dram-membus
+3 5
+trace-1491 -- l2bus-l2cache
+1 7
+trace-1491 -- l2cache-membus
+4 6
+]
+
+[trace-1492 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1493 -- cpu0-icache0
+0 9
+]
+
+[trace-1494 -- cpu0-icache0
+0 9
+]
+
+[trace-1495 -- cpu0-icache0
+0 9
+]
+
+[trace-1496 -- cpu0-icache0
+0 9
+]
+
+[trace-1497 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1498 -- cpu0-icache0
+0 9
+]
+
+[trace-1499 -- cpu0-icache0
+0 9
+]
+
+[trace-1500 -- cpu0-dcache0
+20 23
+]
+
+[trace-1501 -- cpu0-icache0
+0 9
+]
+
+[trace-1502 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1503 -- cpu0-dcache0
+10 19
+]
+
+[trace-1504 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1505 -- cpu0-icache0
+0 9
+trace-1505 -- dram-membus
+3 5
+trace-1505 -- icache0-l2bus
+2 8
+trace-1505 -- l2bus-l2cache
+1 7
+trace-1505 -- l2cache-membus
+4 6
+]
+
+[trace-1506 -- icache0-l2bus
+25
+trace-1506 -- l2bus-l2cache
+24
+]
+
+[trace-1507 -- cpu0-dcache0
+20 23
+]
+
+[trace-1508 -- cpu0-icache0
+0 9
+]
+
+[trace-1509 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1510 -- cpu0-dcache0
+10 19
+]
+
+[trace-1511 -- dcache0-l2bus
+12 18
+trace-1511 -- dram-membus
+13 15
+trace-1511 -- l2bus-l2cache
+11 17
+trace-1511 -- l2cache-membus
+14 16
+]
+
+[trace-1512 -- cpu0-icache0
+0 9
+]
+
+[trace-1513 -- cpu0-icache0
+0 9
+]
+
+[trace-1514 -- cpu0-icache0
+0 9
+]
+
+[trace-1515 -- cpu0-icache0
+0 9
+]
+
+[trace-1516 -- cpu0-dcache0
+20 23
+]
+
+[trace-1517 -- cpu0-icache0
+0 9
+]
+
+[trace-1518 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1519 -- cpu0-dcache0
+10 19
+]
+
+[trace-1520 -- cpu0-icache0
+0 9
+]
+
+[trace-1521 -- cpu0-icache0
+0 9
+]
+
+[trace-1522 -- cpu0-icache0
+0 9
+]
+
+[trace-1523 -- cpu0-icache0
+0 9
+trace-1523 -- dram-membus
+3 5
+trace-1523 -- icache0-l2bus
+2 8
+trace-1523 -- l2bus-l2cache
+1 7
+trace-1523 -- l2cache-membus
+4 6
+]
+
+[trace-1524 -- cpu0-dcache0
+20 23
+]
+
+[trace-1525 -- cpu0-icache0
+0 9
+]
+
+[trace-1526 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1527 -- cpu0-dcache0
+10 19
+]
+
+[trace-1528 -- cpu0-icache0
+0 9
+]
+
+[trace-1529 -- cpu0-icache0
+0 9
+]
+
+[trace-1530 -- cpu0-icache0
+0 9
+]
+
+[trace-1531 -- cpu0-dcache0
+20 23
+]
+
+[trace-1532 -- cpu0-icache0
+0 9
+]
+
+[trace-1533 -- cpu0-icache0
+0 9
+]
+
+[trace-1534 -- cpu0-dcache0
+10 19
+]
+
+[trace-1535 -- cpu0-icache0
+0 9
+]
+
+[trace-1536 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1537 -- cpu0-dcache0
+20 23
+]
+
+[trace-1538 -- cpu0-icache0
+0 9
+]
+
+[trace-1539 -- cpu0-dcache0
+20 23
+]
+
+[trace-1540 -- cpu0-icache0
+0 9
+]
+
+[trace-1541 -- cpu0-dcache0
+10 19
+]
+
+[trace-1542 -- cpu0-icache0
+0 9
+]
+
+[trace-1543 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1544 -- cpu0-dcache0
+20 23
+]
+
+[trace-1545 -- cpu0-icache0
+0 9
+]
+
+[trace-1546 -- cpu0-icache0
+0 9
+]
+
+[trace-1547 -- cpu0-dcache0
+20 23
+]
+
+[trace-1548 -- cpu0-icache0
+0 9
+]
+
+[trace-1549 -- cpu0-dcache0
+10 19
+]
+
+[trace-1550 -- cpu0-icache0
+0 9
+]
+
+[trace-1551 -- cpu0-icache0
+0 9
+trace-1551 -- dram-membus
+3 5
+trace-1551 -- icache0-l2bus
+2 8
+trace-1551 -- l2bus-l2cache
+1 7
+trace-1551 -- l2cache-membus
+4 6
+]
+
+[trace-1552 -- cpu0-dcache0
+20 23
+]
+
+[trace-1553 -- cpu0-icache0
+0 9
+]
+
+[trace-1554 -- cpu0-icache0
+0 9
+]
+
+[trace-1555 -- cpu0-icache0
+0 9
+]
+
+[trace-1556 -- cpu0-dcache0
+20 23
+]
+
+[trace-1557 -- cpu0-icache0
+0 9
+]
+
+[trace-1558 -- cpu0-icache0
+0 9
+]
+
+[trace-1559 -- cpu0-dcache0
+10 19
+]
+
+[trace-1560 -- cpu0-icache0
+0 9
+]
+
+[trace-1561 -- cpu0-icache0
+0 9
+]
+
+[trace-1562 -- cpu0-icache0
+0 9
+]
+
+[trace-1563 -- cpu0-icache0
+0 9
+trace-1563 -- dram-membus
+3 5
+trace-1563 -- icache0-l2bus
+2 8
+trace-1563 -- l2bus-l2cache
+1 7
+trace-1563 -- l2cache-membus
+4 6
+]
+
+[trace-1564 -- cpu0-dcache0
+10 19
+]
+
+[trace-1565 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1566 -- dram-membus
+3 5
+trace-1566 -- icache0-l2bus
+2 8
+trace-1566 -- l2bus-l2cache
+1 7
+trace-1566 -- l2cache-membus
+4 6
+]
+
+[trace-1567 -- icache0-l2bus
+25
+trace-1567 -- l2bus-l2cache
+24
+]
+
+[trace-1568 -- cpu0-icache0
+0 9
+]
+
+[trace-1569 -- cpu0-dcache0
+10 19
+]
+
+[trace-1570 -- cpu0-dcache0
+10 19
+]
+
+[trace-1571 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1572 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1573 -- cpu0-dcache0
+10 19
+]
+
+[trace-1574 -- cpu0-dcache0
+10 19
+]
+
+[trace-1575 -- dcache0-l2bus
+12 18
+trace-1575 -- dram-membus
+13 15
+trace-1575 -- l2bus-l2cache
+11 17
+trace-1575 -- l2cache-membus
+14 16
+]
+
+[trace-1576 -- cpu0-dcache0
+10 19
+]
+
+[trace-1577 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1578 -- cpu0-dcache0
+10 19
+]
+
+[trace-1579 -- cpu0-icache0
+0 9
+]
+
+[trace-1580 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1581 -- cpu0-dcache0
+20 23
+]
+
+[trace-1582 -- cpu0-icache0
+0 9
+]
+
+[trace-1583 -- cpu0-icache0
+0 9
+trace-1583 -- dram-membus
+3 5
+trace-1583 -- icache0-l2bus
+2 8
+trace-1583 -- l2bus-l2cache
+1 7
+trace-1583 -- l2cache-membus
+4 6
+]
+
+[trace-1584 -- icache0-l2bus
+25
+trace-1584 -- l2bus-l2cache
+24
+]
+
+[trace-1585 -- cpu0-icache0
+0 9
+]
+
+[trace-1586 -- cpu0-icache0
+0 9
+]
+
+[trace-1587 -- cpu0-icache0
+0 9
+]
+
+[trace-1588 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1589 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1590 -- cpu0-icache0
+0 9
+]
+
+[trace-1591 -- cpu0-icache0
+0 9
+]
+
+[trace-1592 -- cpu0-icache0
+0 9
+]
+
+[trace-1593 -- cpu0-icache0
+0 9
+]
+
+[trace-1594 -- cpu0-icache0
+0 9
+]
+
+[trace-1595 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1596 -- cpu0-dcache0
+20 23
+]
+
+[trace-1597 -- cpu0-icache0
+0 9
+]
+
+[trace-1598 -- cpu0-icache0
+0 9
+]
+
+[trace-1599 -- cpu0-icache0
+0 9
+]
+
+[trace-1600 -- dram-membus
+3 5
+trace-1600 -- icache0-l2bus
+2 8
+trace-1600 -- l2bus-l2cache
+1 7
+trace-1600 -- l2cache-membus
+4 6
+]
+
+[trace-1601 -- cpu0-icache0
+0 9
+]
+
+[trace-1602 -- cpu0-dcache0
+20 23
+]
+
+[trace-1603 -- cpu0-icache0
+0 9
+]
+
+[trace-1604 -- cpu0-dcache0
+20 23
+]
+
+[trace-1605 -- cpu0-icache0
+0 9
+]
+
+[trace-1606 -- cpu0-icache0
+0 9
+]
+
+[trace-1607 -- cpu0-dcache0
+20 23
+]
+
+[trace-1608 -- cpu0-icache0
+0 9
+]
+
+[trace-1609 -- cpu0-dcache0
+20 23
+]
+
+[trace-1610 -- cpu0-icache0
+0 9
+]
+
+[trace-1611 -- cpu0-dcache0
+20 23 10 19
+]
+
+[trace-1612 -- cpu0-icache0
+0 9
+]
+
+[trace-1613 -- cpu0-dcache0
+20 23
+]
+
+[trace-1614 -- cpu0-icache0
+0 9
+]
+
+[trace-1615 -- cpu0-dcache0
+20 23
+]
+
+[trace-1616 -- cpu0-icache0
+0 9
+]
+
+[trace-1617 -- cpu0-dcache0
+10 19
+]
+
+[trace-1618 -- cpu0-icache0
+0 9
+trace-1618 -- dram-membus
+3 5
+trace-1618 -- icache0-l2bus
+2 8
+trace-1618 -- l2bus-l2cache
+1 7
+trace-1618 -- l2cache-membus
+4 6
+]
+
+[trace-1619 -- icache0-l2bus
+25
+trace-1619 -- l2bus-l2cache
+24
+]
+
+[trace-1620 -- cpu0-icache0
+0 9
+]
+
+[trace-1621 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1622 -- cpu0-icache0
+0 9
+]
+
+[trace-1623 -- cpu0-icache0
+0 9
+]
+
+[trace-1624 -- cpu0-icache0
+0 9
+]
+
+[trace-1625 -- cpu0-icache0
+0 9
+]
+
+[trace-1626 -- cpu0-dcache0
+10 19
+]
+
+[trace-1627 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1628 -- dram-membus
+3 5
+trace-1628 -- icache0-l2bus
+2 8
+trace-1628 -- l2bus-l2cache
+1 7
+trace-1628 -- l2cache-membus
+4 6
+]
+
+[trace-1629 -- cpu0-icache0
+0 9
+]
+
+[trace-1630 -- cpu0-icache0
+0 9
+]
+
+[trace-1631 -- cpu0-icache0
+0 9
+]
+
+[trace-1632 -- cpu0-icache0
+0 9
+]
+
+[trace-1633 -- cpu0-icache0
+0 9
+]
+
+[trace-1634 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1635 -- cpu0-icache0
+0 9
+]
+
+[trace-1636 -- cpu0-icache0
+0 9
+]
+
+[trace-1637 -- cpu0-dcache0
+20 23
+]
+
+[trace-1638 -- dcache0-l2bus
+21 22
+trace-1638 -- dram-membus
+3 5
+trace-1638 -- l2bus-l2cache
+1 7
+trace-1638 -- l2cache-membus
+4 6
+]
+
+[trace-1639 -- cpu0-icache0
+0 9
+]
+
+[trace-1640 -- cpu0-dcache0
+20 23
+]
+
+[trace-1641 -- dcache0-l2bus
+21 22
+trace-1641 -- dram-membus
+3 5
+trace-1641 -- l2bus-l2cache
+1 7
+trace-1641 -- l2cache-membus
+4 6
+]
+
+[trace-1642 -- cpu0-icache0
+0 9
+]
+
+[trace-1643 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1644 -- cpu0-icache0
+0 9
+]
+
+[trace-1645 -- cpu0-icache0
+0 9
+trace-1645 -- dram-membus
+3 5
+trace-1645 -- icache0-l2bus
+2 8
+trace-1645 -- l2bus-l2cache
+1 7
+trace-1645 -- l2cache-membus
+4 6
+]
+
+[trace-1646 -- cpu0-icache0
+0 9
+]
+
+[trace-1647 -- cpu0-dcache0
+10 19
+]
+
+[trace-1648 -- cpu0-icache0
+0 9
+]
+
+[trace-1649 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1650 -- cpu0-icache0
+0 9
+]
+
+[trace-1651 -- cpu0-icache0
+0 9
+]
+
+[trace-1652 -- cpu0-icache0
+0 9
+]
+
+[trace-1653 -- cpu0-dcache0
+20 23
+]
+
+[trace-1654 -- cpu0-icache0
+0 9
+]
+
+[trace-1655 -- cpu0-icache0
+0 9
+]
+
+[trace-1656 -- cpu0-dcache0
+20 23
+]
+
+[trace-1657 -- cpu0-icache0
+0 9
+]
+
+[trace-1658 -- cpu0-icache0
+0 9
+]
+
+[trace-1659 -- cpu0-dcache0
+20 23
+]
+
+[trace-1660 -- cpu0-icache0
+0 9
+]
+
+[trace-1661 -- cpu0-icache0
+0 9
+]
+
+[trace-1662 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1663 -- cpu0-dcache0
+10 19
+]
+
+[trace-1664 -- cpu0-icache0
+0 9
+]
+
+[trace-1665 -- cpu0-dcache0
+20 23
+]
+
+[trace-1666 -- cpu0-icache0
+0 9
+]
+
+[trace-1667 -- cpu0-icache0
+0 9
+]
+
+[trace-1668 -- cpu0-icache0
+0 9
+]
+
+[trace-1669 -- cpu0-dcache0
+10 19 20 23
+]
+
+[trace-1670 -- cpu0-icache0
+0 9
+]
+
+[trace-1671 -- dram-membus
+3 5
+trace-1671 -- icache0-l2bus
+2 8
+trace-1671 -- l2bus-l2cache
+1 7
+trace-1671 -- l2cache-membus
+4 6
+]
+
+[trace-1672 -- cpu0-icache0
+0 9
+]
+
+[trace-1673 -- cpu0-icache0
+0 9
+]
+
+[trace-1674 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1675 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1676 -- cpu0-dcache0
+10 19
+]
+
+[trace-1677 -- dcache0-l2bus
+12 18
+trace-1677 -- dram-membus
+13 15
+trace-1677 -- l2bus-l2cache
+11 17
+trace-1677 -- l2cache-membus
+14 16
+]
+
+[trace-1678 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1679 -- cpu0-icache0
+0 9
+]
+
+[trace-1680 -- cpu0-icache0
+0 9
+]
+
+[trace-1681 -- cpu0-icache0
+0 9
+]
+
+[trace-1682 -- cpu0-icache0
+0 9
+]
+
+[trace-1683 -- cpu0-dcache0
+10 19
+]
+
+[trace-1684 -- cpu0-icache0
+0 9
+]
+
+[trace-1685 -- dram-membus
+3 5
+trace-1685 -- icache0-l2bus
+2 8
+trace-1685 -- l2bus-l2cache
+1 7
+trace-1685 -- l2cache-membus
+4 6
+]
+
+[trace-1686 -- cpu0-icache0
+0 9
+]
+
+[trace-1687 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1688 -- cpu0-dcache0
+20 23
+]
+
+[trace-1689 -- cpu0-icache0
+0 9
+]
+
+[trace-1690 -- cpu0-icache0
+0 9
+]
+
+[trace-1691 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1692 -- dram-membus
+3 5
+trace-1692 -- icache0-l2bus
+2 8
+trace-1692 -- l2bus-l2cache
+1 7
+trace-1692 -- l2cache-membus
+4 6
+]
+
+[trace-1693 -- icache0-l2bus
+25
+trace-1693 -- l2bus-l2cache
+24
+]
+
+[trace-1694 -- cpu0-dcache0
+10 19
+]
+
+[trace-1695 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1696 -- cpu0-dcache0
+10 19
+]
+
+[trace-1697 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1698 -- cpu0-dcache0
+10 19
+]
+
+[trace-1699 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1700 -- cpu0-dcache0
+10 19
+]
+
+[trace-1701 -- cpu0-dcache0
+10 19
+]
+
+[trace-1702 -- cpu0-icache0
+0 9
+]
+
+[trace-1703 -- cpu0-icache0
+0 9
+]
+
+[trace-1704 -- cpu0-icache0
+0 9
+]
+
+[trace-1705 -- cpu0-dcache0
+10 19
+]
+
+[trace-1706 -- dcache0-l2bus
+12 18
+trace-1706 -- dram-membus
+13 15
+trace-1706 -- l2bus-l2cache
+11 17
+trace-1706 -- l2cache-membus
+14 16
+]
+
+[trace-1707 -- cpu0-icache0
+0 9
+]
+
+[trace-1708 -- cpu0-icache0
+0 9
+]
+
+[trace-1709 -- cpu0-icache0
+0 9
+]
+
+[trace-1710 -- cpu0-dcache0
+10 19
+]
+
+[trace-1711 -- cpu0-icache0
+0 9
+]
+
+[trace-1712 -- cpu0-icache0
+0 9 0 9
+trace-1712 -- dram-membus
+3 5
+trace-1712 -- icache0-l2bus
+2 8
+trace-1712 -- l2bus-l2cache
+1 7
+trace-1712 -- l2cache-membus
+4 6
+]
+
+[trace-1713 -- icache0-l2bus
+25
+trace-1713 -- l2bus-l2cache
+24
+]
+
+[trace-1714 -- cpu0-dcache0
+10 19
+]
+
+[trace-1715 -- cpu0-icache0
+0 9
+]
+
+[trace-1716 -- cpu0-icache0
+0 9
+]
+
+[trace-1717 -- cpu0-dcache0
+10 19
+]
+
+[trace-1718 -- cpu0-icache0
+0 9
+]
+
+[trace-1719 -- cpu0-icache0
+0 9
+]
+
+[trace-1720 -- cpu0-icache0
+0 9
+]
+
+[trace-1721 -- cpu0-icache0
+0 9
+trace-1721 -- dram-membus
+3 5
+trace-1721 -- icache0-l2bus
+2 8
+trace-1721 -- l2bus-l2cache
+1 7
+trace-1721 -- l2cache-membus
+4 6
+]
+
+[trace-1722 -- cpu0-icache0
+0 9
+]
+
+[trace-1723 -- cpu0-icache0
+0 9
+]
+
+[trace-1724 -- cpu0-icache0
+0 9
+]
+
+[trace-1725 -- dram-membus
+3 5
+trace-1725 -- icache0-l2bus
+2 8
+trace-1725 -- l2bus-l2cache
+1 7
+trace-1725 -- l2cache-membus
+4 6
+]
+
+[trace-1726 -- cpu0-icache0
+0 9
+]
+
+[trace-1727 -- cpu0-icache0
+0 9
+]
+
+[trace-1728 -- cpu0-icache0
+0 9
+]
+
+[trace-1729 -- cpu0-icache0
+0 9
+]
+
+[trace-1730 -- cpu0-icache0
+0 9
+]
+
+[trace-1731 -- cpu0-icache0
+0 9
+trace-1731 -- dram-membus
+3 5
+trace-1731 -- icache0-l2bus
+2 8
+trace-1731 -- l2bus-l2cache
+1 7
+trace-1731 -- l2cache-membus
+4 6
+]
+
+[trace-1732 -- cpu0-icache0
+0 9
+]
+
+[trace-1733 -- cpu0-icache0
+0 9
+]
+
+[trace-1734 -- cpu0-icache0
+0 9
+]
+
+[trace-1735 -- cpu0-icache0
+0 9
+]
+
+[trace-1736 -- cpu0-icache0
+0 9
+]
+
+[trace-1737 -- cpu0-icache0
+0 9
+]
+
+[trace-1738 -- cpu0-icache0
+0 9
+]
+
+[trace-1739 -- cpu0-icache0
+0 9
+]
+
+[trace-1740 -- cpu0-icache0
+0 9
+]
+
+[trace-1741 -- cpu0-icache0
+0 9
+]
+
+[trace-1742 -- cpu0-icache0
+0 9
+]
+
+[trace-1743 -- cpu0-icache0
+0 9 0 9
+trace-1743 -- dram-membus
+3 5
+trace-1743 -- icache0-l2bus
+2 8
+trace-1743 -- l2bus-l2cache
+1 7
+trace-1743 -- l2cache-membus
+4 6
+]
+
+[trace-1744 -- cpu0-icache0
+0 9
+]
+
+[trace-1745 -- cpu0-icache0
+0 9
+]
+
+[trace-1746 -- cpu0-dcache0
+10 19
+]
+
+[trace-1747 -- dcache0-l2bus
+12 18
+trace-1747 -- dram-membus
+13 15
+trace-1747 -- l2bus-l2cache
+11 17
+trace-1747 -- l2cache-membus
+14 16
+]
+
+[trace-1748 -- cpu0-icache0
+0 9 0 9
+trace-1748 -- dram-membus
+3 5
+trace-1748 -- icache0-l2bus
+2 8
+trace-1748 -- l2bus-l2cache
+1 7
+trace-1748 -- l2cache-membus
+4 6
+]
+
+[trace-1749 -- cpu0-dcache0
+10 19
+]
+
+[trace-1750 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1751 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1752 -- cpu0-icache0
+0 9
+]
+
+[trace-1753 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1754 -- cpu0-icache0
+0 9
+]
+
+[trace-1755 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1756 -- cpu0-dcache0
+10 19
+]
+
+[trace-1757 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1758 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1759 -- cpu0-dcache0
+10 19
+]
+
+[trace-1760 -- cpu0-icache0
+0 9
+]
+
+[trace-1761 -- cpu0-icache0
+0 9
+]
+
+[trace-1762 -- cpu0-dcache0
+10 19
+]
+
+[trace-1763 -- cpu0-icache0
+0 9
+]
+
+[trace-1764 -- cpu0-icache0
+0 9
+]
+
+[trace-1765 -- cpu0-dcache0
+10 19
+]
+
+[trace-1766 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1767 -- cpu0-dcache0
+10 19
+]
+
+[trace-1768 -- cpu0-icache0
+0 9
+]
+
+[trace-1769 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1770 -- cpu0-icache0
+0 9
+]
+
+[trace-1771 -- cpu0-dcache0
+10 19
+]
+
+[trace-1772 -- cpu0-icache0
+0 9
+]
+
+[trace-1773 -- cpu0-icache0
+0 9 0 9
+trace-1773 -- dram-membus
+3 5
+trace-1773 -- icache0-l2bus
+2 8
+trace-1773 -- l2bus-l2cache
+1 7
+trace-1773 -- l2cache-membus
+4 6
+]
+
+[trace-1774 -- cpu0-icache0
+0 9
+]
+
+[trace-1775 -- cpu0-icache0
+0 9
+]
+
+[trace-1776 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1777 -- cpu0-dcache0
+10 19
+]
+
+[trace-1778 -- cpu0-icache0
+0 9
+]
+
+[trace-1779 -- cpu0-icache0
+0 9
+]
+
+[trace-1780 -- cpu0-icache0
+0 9
+]
+
+[trace-1781 -- cpu0-dcache0
+10 19
+]
+
+[trace-1782 -- cpu0-icache0
+0 9
+]
+
+[trace-1783 -- cpu0-dcache0
+20 23
+]
+
+[trace-1784 -- cpu0-icache0
+0 9
+]
+
+[trace-1785 -- cpu0-icache0
+0 9 0 9
+trace-1785 -- dram-membus
+3 5
+trace-1785 -- icache0-l2bus
+2 8
+trace-1785 -- l2bus-l2cache
+1 7
+trace-1785 -- l2cache-membus
+4 6
+]
+
+[trace-1786 -- cpu0-icache0
+0 9
+]
+
+[trace-1787 -- cpu0-icache0
+0 9
+]
+
+[trace-1788 -- cpu0-icache0
+0 9
+]
+
+[trace-1789 -- cpu0-dcache0
+10 19
+]
+
+[trace-1790 -- cpu0-icache0
+0 9
+]
+
+[trace-1791 -- cpu0-dcache0
+20 23
+]
+
+[trace-1792 -- cpu0-icache0
+0 9
+]
+
+[trace-1793 -- cpu0-dcache0
+20 23 10 19
+]
+
+[trace-1794 -- cpu0-icache0
+0 9
+]
+
+[trace-1795 -- cpu0-icache0
+0 9
+]
+
+[trace-1796 -- cpu0-icache0
+0 9
+]
+
+[trace-1797 -- cpu0-dcache0
+20 23
+]
+
+[trace-1798 -- cpu0-icache0
+0 9
+]
+
+[trace-1799 -- cpu0-icache0
+0 9
+]
+
+[trace-1800 -- cpu0-icache0
+0 9
+]
+
+[trace-1801 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1802 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1803 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1804 -- cpu0-icache0
+0 9
+]
+
+[trace-1805 -- cpu0-icache0
+0 9
+trace-1805 -- dram-membus
+3 5
+trace-1805 -- icache0-l2bus
+2 8
+trace-1805 -- l2bus-l2cache
+1 7
+trace-1805 -- l2cache-membus
+4 6
+]
+
+[trace-1806 -- cpu0-dcache0
+10 19
+]
+
+[trace-1807 -- dcache0-l2bus
+12 18
+trace-1807 -- dram-membus
+13 15
+trace-1807 -- l2bus-l2cache
+11 17
+trace-1807 -- l2cache-membus
+14 16
+]
+
+[trace-1808 -- cpu0-icache0
+0 9
+]
+
+[trace-1809 -- cpu0-icache0
+0 9
+]
+
+[trace-1810 -- cpu0-dcache0
+10 19
+]
+
+[trace-1811 -- cpu0-icache0
+0 9
+]
+
+[trace-1812 -- cpu0-icache0
+0 9
+]
+
+[trace-1813 -- cpu0-dcache0
+10 19
+]
+
+[trace-1814 -- cpu0-icache0
+0 9
+]
+
+[trace-1815 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1816 -- cpu0-dcache0
+10 19
+]
+
+[trace-1817 -- cpu0-icache0
+0 9
+]
+
+[trace-1818 -- cpu0-icache0
+0 9
+]
+
+[trace-1819 -- cpu0-dcache0
+20 23
+]
+
+[trace-1820 -- cpu0-icache0
+0 9
+]
+
+[trace-1821 -- cpu0-icache0
+0 9
+]
+
+[trace-1822 -- cpu0-dcache0
+10 19
+]
+
+[trace-1823 -- dcache0-l2bus
+12 18
+trace-1823 -- dram-membus
+13 15
+trace-1823 -- l2bus-l2cache
+11 17
+trace-1823 -- l2cache-membus
+14 16
+]
+
+[trace-1824 -- cpu0-icache0
+0 9
+]
+
+[trace-1825 -- cpu0-icache0
+0 9
+]
+
+[trace-1826 -- cpu0-dcache0
+10 19
+]
+
+[trace-1827 -- cpu0-icache0
+0 9
+]
+
+[trace-1828 -- cpu0-dcache0
+10 19
+]
+
+[trace-1829 -- cpu0-icache0
+0 9
+]
+
+[trace-1830 -- cpu0-icache0
+0 9
+]
+
+[trace-1831 -- cpu0-dcache0
+10 19
+]
+
+[trace-1832 -- cpu0-icache0
+0 9
+]
+
+[trace-1833 -- cpu0-icache0
+0 9
+]
+
+[trace-1834 -- dram-membus
+3 5
+trace-1834 -- icache0-l2bus
+2 8
+trace-1834 -- l2bus-l2cache
+1 7
+trace-1834 -- l2cache-membus
+4 6
+]
+
+[trace-1835 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1836 -- cpu0-dcache0
+20 23
+]
+
+[trace-1837 -- cpu0-icache0
+0 9
+]
+
+[trace-1838 -- cpu0-icache0
+0 9
+trace-1838 -- dram-membus
+3 5
+trace-1838 -- icache0-l2bus
+2 8
+trace-1838 -- l2bus-l2cache
+1 7
+trace-1838 -- l2cache-membus
+4 6
+]
+
+[trace-1839 -- cpu0-dcache0
+20 23
+]
+
+[trace-1840 -- cpu0-icache0
+0 9
+]
+
+[trace-1841 -- cpu0-icache0
+0 9
+]
+
+[trace-1842 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1843 -- cpu0-dcache0
+10 19
+]
+
+[trace-1844 -- cpu0-icache0
+0 9
+]
+
+[trace-1845 -- cpu0-dcache0
+20 23
+]
+
+[trace-1846 -- cpu0-dcache0
+20 23
+]
+
+[trace-1847 -- cpu0-icache0
+0 9
+]
+
+[trace-1848 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1849 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1850 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1851 -- cpu0-icache0
+0 9
+]
+
+[trace-1852 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1853 -- cpu0-icache0
+0 9
+]
+
+[trace-1854 -- cpu0-icache0
+0 9
+]
+
+[trace-1855 -- cpu0-dcache0
+10 19
+]
+
+[trace-1856 -- cpu0-icache0
+0 9
+]
+
+[trace-1857 -- cpu0-dcache0
+10 19
+]
+
+[trace-1858 -- cpu0-icache0
+0 9
+]
+
+[trace-1859 -- cpu0-icache0
+0 9
+]
+
+[trace-1860 -- cpu0-dcache0
+10 19
+]
+
+[trace-1861 -- cpu0-icache0
+0 9
+]
+
+[trace-1862 -- cpu0-icache0
+0 9
+]
+
+[trace-1863 -- cpu0-dcache0
+10 19
+]
+
+[trace-1864 -- cpu0-icache0
+0 9
+]
+
+[trace-1865 -- cpu0-icache0
+0 9 0 9
+trace-1865 -- dram-membus
+3 5
+trace-1865 -- icache0-l2bus
+2 8
+trace-1865 -- l2bus-l2cache
+1 7
+trace-1865 -- l2cache-membus
+4 6
+]
+
+[trace-1866 -- cpu0-icache0
+0 9
+]
+
+[trace-1867 -- cpu0-icache0
+0 9
+]
+
+[trace-1868 -- cpu0-icache0
+0 9
+]
+
+[trace-1869 -- cpu0-dcache0
+10 19
+]
+
+[trace-1870 -- dcache0-l2bus
+12 18
+trace-1870 -- dram-membus
+13 15
+trace-1870 -- l2bus-l2cache
+11 17
+trace-1870 -- l2cache-membus
+14 16
+]
+
+[trace-1871 -- cpu0-icache0
+0 9
+]
+
+[trace-1872 -- cpu0-dcache0
+10 19
+]
+
+[trace-1873 -- cpu0-icache0
+0 9
+]
+
+[trace-1874 -- cpu0-icache0
+0 9
+]
+
+[trace-1875 -- cpu0-dcache0
+10 19
+]
+
+[trace-1876 -- cpu0-icache0
+0 9
+]
+
+[trace-1877 -- cpu0-icache0
+0 9
+]
+
+[trace-1878 -- cpu0-dcache0
+10 19
+]
+
+[trace-1879 -- cpu0-icache0
+0 9
+]
+
+[trace-1880 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1881 -- cpu0-icache0
+0 9
+]
+
+[trace-1882 -- cpu0-icache0
+0 9
+]
+
+[trace-1883 -- cpu0-icache0
+0 9
+]
+
+[trace-1884 -- cpu0-dcache0
+10 19
+]
+
+[trace-1885 -- cpu0-icache0
+0 9
+]
+
+[trace-1886 -- cpu0-icache0
+0 9
+]
+
+[trace-1887 -- cpu0-dcache0
+10 19
+]
+
+[trace-1888 -- cpu0-icache0
+0 9
+]
+
+[trace-1889 -- cpu0-icache0
+0 9
+trace-1889 -- dram-membus
+3 5
+trace-1889 -- icache0-l2bus
+2 8
+trace-1889 -- l2bus-l2cache
+1 7
+trace-1889 -- l2cache-membus
+4 6
+]
+
+[trace-1890 -- cpu0-dcache0
+10 19
+]
+
+[trace-1891 -- cpu0-icache0
+0 9
+]
+
+[trace-1892 -- cpu0-icache0
+0 9
+]
+
+[trace-1893 -- cpu0-dcache0
+10 19
+]
+
+[trace-1894 -- cpu0-icache0
+0 9
+]
+
+[trace-1895 -- cpu0-dcache0
+10 19
+]
+
+[trace-1896 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1897 -- dram-membus
+3 5
+trace-1897 -- icache0-l2bus
+2 8
+trace-1897 -- l2bus-l2cache
+1 7
+trace-1897 -- l2cache-membus
+4 6
+]
+
+[trace-1898 -- cpu0-dcache0
+10 19
+]
+
+[trace-1899 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1900 -- cpu0-dcache0
+10 19
+]
+
+[trace-1901 -- dcache0-l2bus
+12 18
+trace-1901 -- dram-membus
+13 15
+trace-1901 -- l2bus-l2cache
+11 17
+trace-1901 -- l2cache-membus
+14 16
+]
+
+[trace-1902 -- cpu0-dcache0
+10 19
+]
+
+[trace-1903 -- cpu0-dcache0
+10 19
+]
+
+[trace-1904 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1905 -- cpu0-dcache0
+10 19
+]
+
+[trace-1906 -- cpu0-icache0
+0 9
+]
+
+[trace-1907 -- cpu0-dcache0
+10 19
+]
+
+[trace-1908 -- cpu0-icache0
+0 9
+trace-1908 -- dram-membus
+3 5
+trace-1908 -- icache0-l2bus
+2 8
+trace-1908 -- l2bus-l2cache
+1 7
+trace-1908 -- l2cache-membus
+4 6
+]
+
+[trace-1909 -- cpu0-icache0
+0 9
+]
+
+[trace-1910 -- cpu0-dcache0
+20 23
+]
+
+[trace-1911 -- cpu0-icache0
+0 9
+]
+
+[trace-1912 -- cpu0-icache0
+0 9
+]
+
+[trace-1913 -- cpu0-dcache0
+20 23
+]
+
+[trace-1914 -- cpu0-icache0
+0 9
+]
+
+[trace-1915 -- cpu0-icache0
+0 9
+]
+
+[trace-1916 -- cpu0-dcache0
+20 23
+]
+
+[trace-1917 -- cpu0-icache0
+0 9
+]
+
+[trace-1918 -- cpu0-icache0
+0 9
+]
+
+[trace-1919 -- cpu0-dcache0
+20 23
+]
+
+[trace-1920 -- cpu0-icache0
+0 9
+]
+
+[trace-1921 -- cpu0-dcache0
+10 19
+]
+
+[trace-1922 -- dcache0-l2bus
+12 18
+trace-1922 -- dram-membus
+13 15
+trace-1922 -- l2bus-l2cache
+11 17
+trace-1922 -- l2cache-membus
+14 16
+]
+
+[trace-1923 -- cpu0-icache0
+0 9
+]
+
+[trace-1924 -- cpu0-icache0
+0 9
+]
+
+[trace-1925 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1926 -- cpu0-icache0
+0 9
+]
+
+[trace-1927 -- cpu0-icache0
+0 9
+]
+
+[trace-1928 -- cpu0-dcache0
+20 23
+]
+
+[trace-1929 -- cpu0-icache0
+0 9
+]
+
+[trace-1930 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1931 -- cpu0-dcache0
+20 23
+]
+
+[trace-1932 -- cpu0-icache0
+0 9
+]
+
+[trace-1933 -- cpu0-icache0
+0 9 0 9
+trace-1933 -- dram-membus
+3 5
+trace-1933 -- icache0-l2bus
+2 8
+trace-1933 -- l2bus-l2cache
+1 7
+trace-1933 -- l2cache-membus
+4 6
+]
+
+[trace-1934 -- cpu0-icache0
+0 9
+]
+
+[trace-1935 -- cpu0-icache0
+0 9
+]
+
+[trace-1936 -- cpu0-dcache0
+10 19
+]
+
+[trace-1937 -- cpu0-icache0
+0 9
+]
+
+[trace-1938 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1939 -- cpu0-dcache0
+20 23
+]
+
+[trace-1940 -- cpu0-icache0
+0 9
+]
+
+[trace-1941 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1942 -- cpu0-dcache0
+20 23
+]
+
+[trace-1943 -- cpu0-icache0
+0 9
+]
+
+[trace-1944 -- cpu0-icache0
+0 9
+]
+
+[trace-1945 -- cpu0-icache0
+0 9
+]
+
+[trace-1946 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1947 -- cpu0-icache0
+0 9
+]
+
+[trace-1948 -- cpu0-icache0
+0 9
+]
+
+[trace-1949 -- cpu0-icache0
+0 9
+]
+
+[trace-1950 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1951 -- cpu0-dcache0
+20 23
+]
+
+[trace-1952 -- cpu0-icache0
+0 9
+]
+
+[trace-1953 -- cpu0-icache0
+0 9
+trace-1953 -- dram-membus
+3 5
+trace-1953 -- icache0-l2bus
+2 8
+trace-1953 -- l2bus-l2cache
+1 7
+trace-1953 -- l2cache-membus
+4 6
+]
+
+[trace-1954 -- cpu0-dcache0
+10 19
+]
+
+[trace-1955 -- cpu0-icache0
+0 9
+]
+
+[trace-1956 -- cpu0-icache0
+0 9
+]
+
+[trace-1957 -- cpu0-icache0
+0 9
+]
+
+[trace-1958 -- cpu0-icache0
+0 9
+]
+
+[trace-1959 -- cpu0-dcache0
+20 23
+]
+
+[trace-1960 -- cpu0-icache0
+0 9
+]
+
+[trace-1961 -- cpu0-dcache0
+20 23
+]
+
+[trace-1962 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1963 -- cpu0-icache0
+0 9
+]
+
+[trace-1964 -- cpu0-icache0
+0 9
+]
+
+[trace-1965 -- cpu0-dcache0
+20 23
+]
+
+[trace-1966 -- cpu0-icache0
+0 9
+]
+
+[trace-1967 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1968 -- cpu0-dcache0
+20 23
+]
+
+[trace-1969 -- cpu0-icache0
+0 9
+]
+
+[trace-1970 -- cpu0-icache0
+0 9
+]
+
+[trace-1971 -- cpu0-icache0
+0 9
+]
+
+[trace-1972 -- cpu0-icache0
+0 9
+]
+
+[trace-1973 -- cpu0-icache0
+0 9
+]
+
+[trace-1974 -- cpu0-icache0
+0 9
+trace-1974 -- dram-membus
+3 5
+trace-1974 -- icache0-l2bus
+2 8
+trace-1974 -- l2bus-l2cache
+1 7
+trace-1974 -- l2cache-membus
+4 6
+]
+
+[trace-1975 -- cpu0-dcache0
+20 23
+]
+
+[trace-1976 -- cpu0-icache0
+0 9
+]
+
+[trace-1977 -- cpu0-dcache0
+10 19
+]
+
+[trace-1978 -- cpu0-icache0
+0 9
+]
+
+[trace-1979 -- cpu0-icache0
+0 9
+]
+
+[trace-1980 -- cpu0-icache0
+0 9 0 9
+]
+
+[trace-1981 -- cpu0-dcache0
+20 23 10 19
+]
+
+[trace-1982 -- cpu0-icache0
+0 9
+]
+
+[trace-1983 -- cpu0-icache0
+0 9
+]
+
+[trace-1984 -- cpu0-icache0
+0 9
+]
+
+[trace-1985 -- cpu0-icache0
+0 9
+]
+
+[trace-1986 -- cpu0-dcache0
+10 19
+]
+
+[trace-1987 -- cpu0-icache0
+0 9
+]
+
+[trace-1988 -- cpu0-dcache0
+20 23
+]
+
+[trace-1989 -- cpu0-icache0
+0 9
+]
+
+[trace-1990 -- cpu0-icache0
+0 9
+]
+
+[trace-1991 -- cpu0-icache0
+0 9
+]
+
+[trace-1992 -- cpu0-icache0
+0 9
+]
+
+[trace-1993 -- cpu0-icache0
+0 9
+]
+
+[trace-1994 -- cpu0-dcache0
+10 19
+]
+
+[trace-1995 -- cpu0-icache0
+0 9
+]
+
+[trace-1996 -- cpu0-dcache0
+20 23
+]
+
+[trace-1997 -- cpu0-icache0
+0 9
+trace-1997 -- dram-membus
+3 5
+trace-1997 -- icache0-l2bus
+2 8
+trace-1997 -- l2bus-l2cache
+1 7
+trace-1997 -- l2cache-membus
+4 6
+]
+
+[trace-1998 -- cpu0-dcache0
+10 19
+]
+
+[trace-1999 -- cpu0-dcache0
+10 19
+]
+
+[trace-2000 -- cpu0-icache0
+0 9
+]
+

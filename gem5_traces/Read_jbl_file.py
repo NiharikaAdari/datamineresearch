@@ -34,7 +34,7 @@ def read_trace_file_txt(trace_file, output_file):
                 if traces == 50:
                     break
 
-trace_file_path = "gem5_traces/totalSliced.jbl"
+trace_file_path = "gem5_traces/unsliced-RubelPrintFormat.jbl"
 output_file_path = "output.txt"
 read_trace_file_txt(trace_file_path, output_file_path)
 

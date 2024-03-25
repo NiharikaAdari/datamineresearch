@@ -58,6 +58,18 @@ def construct_causality_graph(messages, sections):
     return Data(edge_index=edge_index), initial_nodes, terminating_nodes, successors_dict
 
 
+"""
+Gets the successors of a node in the graph.
+
+Parameters:
+- node_index: The index of the node
+- successors_dict: A dictionary mapping each node to list of successors.
+
+Returns:
+- A list of tuples, each representing a successor with its index, source, and destination.
+"""
+
+
 def get_successors(node_index, successors_dict):
     node_info = successors_dict.get(node_index)
     if node_info:
@@ -86,7 +98,15 @@ def print_successor_info(node_index, successors_dict):
 
 
 """
-pass in two indices, and check if there is a connection in the graph.
+Checks if there is a causal connection between two nodes in the graph.
+
+Parameters:
+- node_index1: The index of the first node.
+- node_index2: The index of the second node.
+- successors_dict: A dictionary mapping each node to its details and list of successors.
+
+Returns:
+- True if there is a causal connection, False otherwise.
 """
 def isCausal(node_index1, node_index2, successors_dict):
     successors_of_node1 = successors_dict.get(node_index1, {}).get('successors', [])
@@ -97,7 +117,12 @@ def isCausal(node_index1, node_index2, successors_dict):
     return False
 
 """
-print if 2 nodes are connected or not.
+Prints whether two nodes are causally connected or not.
+
+Parameters:
+- node_index1: The index of the first node.
+- node_index2: The index of the second node.
+- successors_dict: A dictionary mapping each node to its details and list of successors.
 """
 def print_causality_info(node_index1, node_index2, successors_dict):
     successors_of_node1 = successors_dict.get(node_index1, {}).get('successors', [])
@@ -111,41 +136,154 @@ def print_causality_info(node_index1, node_index2, successors_dict):
         print(f"Nodes {node_index1} and {node_index2} are not connected.")
 
 
-# Function to read trace from a file
+
+"""
+Reads a trace from a file and returns it as a list of integers.
+
+Parameters:
+- file_path: Path to the file containing the trace.
+
+Returns:
+- A list of integers representing the trace.
+"""
+
 def read_trace_from_file(file_path):
     with open(file_path, 'r') as file:
         trace = file.read().strip().split()
     return [int(index) for index in trace]
 
 
-# Function to find all possible binary subsequences and filter out causal ones
-def find_causal_binary_subsequences(trace, successors_dict):
-    subsequences = [(trace[i], trace[i+1]) for i in range(len(trace) - 1)]
-    causal_subsequences = [(index1, index2) for index1, index2 in subsequences if isCausal(index1, index2, successors_dict)]
-    return causal_subsequences
+"""
+Finds causal pairs within a trace using backtracking.
+
+Parameters:
+- trace: The list representing the trace.
+- successors_dict: A dictionary mapping each node to its details and list of successors.
+
+Returns:
+- List of causal pairs found in the trace.
+"""
 
 
-def find_most_common_subsequences(subsequences, top_n=5):
-    subsequence_counter = Counter(subsequences)
-    return subsequence_counter.most_common(top_n)
+"""
+Finds causal pairs within a trace using backtracking.
+
+Parameters:
+- trace: The list representing the trace.
+- successors_dict: A dictionary mapping each node to its details and list of successors.
+
+Returns:
+- List of causal pairs found in the trace.
+"""
+def find_causal_pairs(trace, successors_dict):
+    causal_pairs = []
 
 
-def compute_common_causal_subsequences(folder_path, output_file, successors_dict):
+    """
+    Recursively backtrack to find causal pairs in the trace.
+
+    Parameters:
+    - start_index: The starting index for searching in the trace.
+    - remaining_trace: The remaining trace to be explored, after removing all the found causal pairs.
+
+    Returns:
+    - True if causal pairs are found and resolve the trace, False otherwise.
+    """
+    def backtrack(start_index, remaining_trace):
+
+        #when there is nothing left remaining, it successfully resolved the trace (found all pairs)
+        if not remaining_trace:
+            print("Successfully resolved the trace.")
+            return True
+        
+        #check initial nodes (first ones in trace)
+        for i in range(start_index, len(remaining_trace)):
+            initial_node = remaining_trace[i]
+            print(f"Trying initial node: {initial_node}")
+
+            #For all nodes that follow. check, if one is causal, find the pair. Remove all instances of pair from trace and proceed.
+            # Skip duplicates or pairs already seen
+
+            printed_end_nodes = set()  # To track printed end nodes
+            for j in range(i + 1, len(remaining_trace)):
+                end_node = remaining_trace[j]
+                if end_node != initial_node and end_node not in printed_end_nodes:
+                    print(f"Checking end node: {end_node}")
+                    printed_end_nodes.add(end_node)
+               
+                if isCausal(initial_node, end_node, successors_dict):
+                    print(f"Found causal pair: ({initial_node}, {end_node})")
+                    causal_pairs.append((initial_node, end_node))
+                    updated_remaining_trace = [node for node in remaining_trace if node not in causal_pairs[-1]]
+
+                    #track how many pairs removed
+                    removed_pairs_count = (len(remaining_trace) - len(updated_remaining_trace)) // 2
+                    counter.update([(initial_node, end_node)] * removed_pairs_count)
+
+                    print(f"Remaining trace after removal: {updated_remaining_trace}")
+
+                    #recursively call the backtrack function with the remaining trace. so the initial will be remainingtrace[i]
+                    if backtrack(i, updated_remaining_trace):
+                        return True
+                    #if it fails, remove the causal pair and try with another
+                    causal_pairs.pop()
+                    counter.subtract([(initial_node, end_node)] * removed_pairs_count)
+                    print("Backtracking...try with another pair")
+
+            # Backtrack if no causal pair found for the current initial node
+            print("Backtracking to previous initial node.")
+            return False
+        
+        #if no causal pairs are found, so it's unsuccessful
+        print("No pairs found...")
+        return False
+
+    #start the backtracking
+    counter = Counter()
+    backtrack(0, trace)
+    return causal_pairs, counter
+
+
+
+
+"""
+Computes common causal pairs from multiple trace files in a folder.
+
+Parameters:
+- folder_path: Path to the folder containing trace files.
+- output_file: Path to the output file to write the results.
+- successors_dict: A dictionary mapping each node to its details and list of successors.
+"""
+def compute_common_causal_pairs(folder_path, output_file, successors_dict):
     total_counter = Counter()
 
     for file_name in os.listdir(folder_path):
         if file_name.endswith(".txt"):
             file_path = os.path.join(folder_path, file_name)
             trace = read_trace_from_file(file_path)
-            causal_subsequences = find_causal_binary_subsequences(trace, successors_dict)
-            most_common_subsequences = find_most_common_subsequences(causal_subsequences)
-            total_counter.update(dict(most_common_subsequences))
+            print("Getting pairs for:", file_path)
+            causal_pairs, counter = find_causal_pairs(trace, successors_dict)
+            total_counter.update(counter)
 
     with open(output_file, 'w') as f:
-        for subsequence, count in total_counter.most_common():
-            f.write(f"{subsequence[0]} {subsequence[1]} : {count}\n")
+        for pair, count in total_counter.most_common():
+            f.write(f"{pair[0]} {pair[1]} : {count}\n")
 
-    print(f"Most common causal binary subsequences written to {output_file}")
+    print(f"Most common causal pairs written to {output_file}")
+
+# def compute_common_causal_pairs_from_file(trace_file, successors_dict):
+#     total_counter = Counter()
+
+#     trace = read_trace_from_file(trace_file)
+#     causal_pairs = find_causal_pairs(trace, successors_dict)
+#     total_counter.update(causal_pairs)
+
+#     with open(output_file, 'w') as f:
+#         for pair, count in total_counter.most_common():
+#             print(f"{pair[0]} {pair[1]} : {count}\n")
+
+    
+
 
 
 if __name__ == "__main__":
@@ -159,26 +297,30 @@ if __name__ == "__main__":
 
     folder_path = "synthetic_traces/traces/trace-small-5"  
     output_file = "synthetic_traces/traces/trace-small-5-common_subsequences.txt"
-    compute_common_causal_subsequences(folder_path, output_file, successors_dict)
+    trace_file = "synthetic_traces/traces/trace-small-5/trace-small-5-cache1-membus.txt"
+    compute_common_causal_pairs(folder_path, output_file, successors_dict)
+    # compute_common_causal_pairs_from_file(trace_file, successors_dict)
 
-    folder_path = "synthetic_traces/traces/trace-small-10"  
-    output_file = "synthetic_traces/traces/trace-small-10-common_subsequences.txt"
-    compute_common_causal_subsequences(folder_path, output_file, successors_dict)
+    # folder_path = "synthetic_traces/traces/trace-small-10"  
+    # output_file = "synthetic_traces/traces/trace-small-10-common_subsequences.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
-    folder_path = "synthetic_traces/traces/trace-small-20"  
-    output_file = "synthetic_traces/traces/trace-small-20-common_subsequences.txt"
-    compute_common_causal_subsequences(folder_path, output_file, successors_dict)
+    # folder_path = "synthetic_traces/traces/trace-small-20"  
+    # output_file = "synthetic_traces/traces/trace-small-20-common_subsequences.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
 
-    folder_path = "synthetic_traces/traces/trace-large-5"  
-    output_file = "synthetic_traces/traces/trace-large-5-common_subsequences.txt"
-    compute_common_causal_subsequences(folder_path, output_file, successors_dict)
+    # folder_path = "synthetic_traces/traces/trace-large-5"  
+    # output_file = "synthetic_traces/traces/trace-large-5-common_subsequences.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
-    folder_path = "synthetic_traces/traces/trace-large-10"  
-    output_file = "synthetic_traces/traces/trace-large-10-common_subsequences.txt"
-    compute_common_causal_subsequences(folder_path, output_file, successors_dict)
+    # folder_path = "synthetic_traces/traces/trace-large-10"  
+    # output_file = "synthetic_traces/traces/trace-large-10-common_subsequences.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
-    folder_path = "synthetic_traces/traces/trace-large-20"  
-    output_file = "synthetic_traces/traces/trace-large-20-common_subsequences.txt"
-    compute_common_causal_subsequences(folder_path, output_file, successors_dict)
+    # folder_path = "synthetic_traces/traces/trace-large-20"  
+    # output_file = "synthetic_traces/traces/trace-large-20-common_subsequences.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
+
+    
 

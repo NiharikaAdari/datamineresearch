@@ -175,8 +175,9 @@ Parameters:
 Returns:
 - List of causal pairs found in the trace.
 """
-def find_causal_pairs(trace, successors_dict):
+def find_binary_pattern(trace, successors_dict):
     causal_pairs = []
+    print("initial trace", trace)
 
 
     """
@@ -262,7 +263,7 @@ def compute_common_causal_pairs(folder_path, output_file, successors_dict):
             file_path = os.path.join(folder_path, file_name)
             trace = read_trace_from_file(file_path)
             print("Getting pairs for:", file_path)
-            causal_pairs, counter = find_causal_pairs(trace, successors_dict)
+            causal_pairs, counter = find_binary_pattern(trace, successors_dict)
             total_counter.update(counter)
 
     with open(output_file, 'w') as f:
@@ -295,19 +296,19 @@ if __name__ == "__main__":
 
 
 
-    folder_path = "synthetic_traces/traces/trace-small-5"  
-    output_file = "synthetic_traces/traces/trace-small-5-common_subsequences.txt"
-    trace_file = "synthetic_traces/traces/trace-small-5/trace-small-5-cache1-membus.txt"
-    compute_common_causal_pairs(folder_path, output_file, successors_dict)
-    # compute_common_causal_pairs_from_file(trace_file, successors_dict)
+    # folder_path = "synthetic_traces/traces/trace-small-5"  
+    # output_file = "synthetic_traces/traces/trace-small-5-common_subsequences.txt"
+    # trace_file = "synthetic_traces/traces/trace-small-5/trace-small-5-cache1-membus.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
+    # # compute_common_causal_pairs_from_file(trace_file, successors_dict)
 
     # folder_path = "synthetic_traces/traces/trace-small-10"  
     # output_file = "synthetic_traces/traces/trace-small-10-common_subsequences.txt"
     # compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
-    # folder_path = "synthetic_traces/traces/trace-small-20"  
-    # output_file = "synthetic_traces/traces/trace-small-20-common_subsequences.txt"
-    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
+    folder_path = "synthetic_traces/traces/trace-small-20"  
+    output_file = "synthetic_traces/traces/trace-small-20-common_subsequences.txt"
+    compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
 
     # folder_path = "synthetic_traces/traces/trace-large-5"  

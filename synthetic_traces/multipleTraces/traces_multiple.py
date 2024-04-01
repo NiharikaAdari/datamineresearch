@@ -56,7 +56,7 @@ def read_trace_file(file_path):
 
 # Extract the sequences and output into filenames based on the src/dest
 def extract_sequences(traces, groups, folder_name_prefix):
-    parent_folder = f"multipleTraces-synthetic"
+    parent_folder = f"synthetic_traces/multipleTraces"
     if not os.path.exists(parent_folder):
         os.makedirs(parent_folder)
 
@@ -64,14 +64,25 @@ def extract_sequences(traces, groups, folder_name_prefix):
         trace_folder = os.path.join(parent_folder, f"{folder_name_prefix}trace-{i}")
         os.makedirs(trace_folder)
 
+        sequences = []
+        # Dictionary for group indices lookup
+        group_indices_lookup = {}  
+        
+        # Initialize sequences for each group
         group_sequences = {group: [] for group in groups}
 
+        # Create a dictionary for group indices lookup. Each index is a key. 
+        for group in groups:
+            for index in group[2]:
+                #each index is part of a group. For example, 5 is a key, who's group is: 5 ('audio', 'membus', (5, 36, 39, 41, 48, 49, 58, 59))
+                group_indices_lookup[index] = group
+                
         # Iterate through the trace list
         for num in trace:
-            # Check if the number belongs to any group
-            for group in groups:
-                if num in group[2]:  # Check if num is in group indices
-                    group_sequences[group].append(num)
+            # Check if the number is a key in the lookup. For that group/trace, append the number in order.
+            if num in group_indices_lookup:
+                group = group_indices_lookup[num]
+                group_sequences[group].append(num)
 
         # Write sequences to files for each trace
         for group, sequence in group_sequences.items():
@@ -81,9 +92,6 @@ def extract_sequences(traces, groups, folder_name_prefix):
                 file.write(" ".join(map(str, sequence)))
 
 
-
-
-
 #functions here
 ####################################################################
 file_path = "synthetic_traces/newLarge.msg"
@@ -91,22 +99,22 @@ groups = extract_groups_from_msg_file(file_path)
 for g in groups:
     print(g)
 ####################################################################
-file_path = "synthetic_traces/multipleTraces-synthetic.txt"
+file_path = "synthetic_traces/multipleTraces/multipleTraces-synthetic.txt"
 traces = read_trace_file(file_path)
 extract_sequences(traces, groups, 'multipleTraces-synthetic')
 
 ####################################################################
-file_path = "synthetic_traces/multipleTraces-syntheticSmall.txt"
+file_path = "synthetic_traces/multipleTraces/multipleTraces-syntheticSmall.txt"
 traces = read_trace_file(file_path)
 extract_sequences(traces, groups, 'multipleTraces-syntheticSmall')
 
 ####################################################################
-file_path = "synthetic_traces/multipleTraces-syntheticLarge.txt"
+file_path = "synthetic_traces/multipleTraces/multipleTraces-syntheticLarge.txt"
 traces = read_trace_file(file_path)
 extract_sequences(traces, groups, 'multipleTraces-syntheticLarge')
 
 ####################################################################
-file_path = "synthetic_traces/RubelMultiTrace.txt"
+file_path = "synthetic_traces/multipleTraces/RubelMultiTrace.txt"
 traces = read_trace_file(file_path)
 extract_sequences(traces, groups, 'RubelMultiTrace')
 

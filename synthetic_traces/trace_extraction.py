@@ -1,4 +1,5 @@
 
+import os
 """
 Message File processing
 -Read the message file. ignore # or whitespace.
@@ -79,23 +80,35 @@ Write it to a file
 
 """
 #extract the sequences and output into file names based on the src/dest
-def extract_sequences(trace, groups, name):
+def extract_traces(trace, groups, name):
     sequences = []
+    # Dictionary for group indices lookup
+    group_indices_lookup = {}  
     
     # Initialize sequences for each group
     group_sequences = {group: [] for group in groups}
     
+    # Create a dictionary for group indices lookup. Each index is a key. 
+    for group in groups:
+        for index in group[2]:
+            #each index is part of a group. For example, 5 is a key, who's group is: 5 ('audio', 'membus', (5, 36, 39, 41, 48, 49, 58, 59))
+            group_indices_lookup[index] = group
+    
     # Iterate through the trace list
     for num in trace:
-        # Check if the number belongs to any group
-        for group in groups:
-            if num in group[2]:  # Check if num is in group indices
-                group_sequences[group].append(num)
+        # Check if the number is a key in the lookup. For that group/trace, append the number in order.
+        if num in group_indices_lookup:
+            group = group_indices_lookup[num]
+            group_sequences[group].append(num)
     
-    # Write sequences to files
+    # Create a folder based on the name parameter
+    folder_name = f"synthetic_traces/traces/{name}"
+    os.makedirs(folder_name, exist_ok=True)  # Create folder if it doesn't exist
+    
+    # Write sequences to files in the folder
     for group, sequence in group_sequences.items():
         src, dest = group[0], group[1]
-        filename = f"{name}-{src}-{dest}.txt"
+        filename = os.path.join(folder_name, f"{name}-{src}-{dest}.txt")
         with open(filename, "w") as file:
             file.write(" ".join(map(str, sequence)))
         sequences.append(sequence)
@@ -105,37 +118,68 @@ def extract_sequences(trace, groups, name):
 
 
 
-#functions here
+#Read the message file, print the groups
 ####################################################################
 file_path = "synthetic_traces/newLarge.msg"
 groups = extract_groups_from_msg_file(file_path)
 for g in groups:
     print(g)
 ####################################################################
-# file_path = "trace-small-5.txt"
-# trace_list = read_trace_file(file_path)
-# print("TRACE LIST", file_path, trace_list)
+#Small synthetic traces
+####################################################################
+file_path = "synthetic_traces/traces/trace-small-5.txt"
+trace_list = read_trace_file(file_path)
+print("TRACE LIST", file_path, trace_list)
 
-# sequences = extract_sequences(trace_list, groups, 'trace-small-5')
-# print(f"Extracted sequences for {file_path}")
-# for seq in sequences:
-#     print(seq)
+sequences = extract_traces(trace_list, groups, 'trace-small-5')
+print(f"Extracted sequences for {file_path}")
+for seq in sequences:
+    print(seq)
+####################################################################
+file_path = "synthetic_traces/traces/trace-small-10.txt"
+trace_list = read_trace_file(file_path)
+print("TRACE LIST", file_path, trace_list)
+
+sequences = extract_traces(trace_list, groups, 'trace-small-10')
+print(f"Extracted sequences for {file_path}")
+for seq in sequences:
+    print(seq)
+####################################################################
+file_path = "synthetic_traces/traces/trace-small-20.txt"
+trace_list = read_trace_file(file_path)
+print("TRACE LIST", file_path, trace_list)
+
+sequences = extract_traces(trace_list, groups, 'trace-small-20')
+print(f"Extracted sequences for {file_path}")
+for seq in sequences:
+    print(seq)
+###################################################################
+#Large synthetic traces
+####################################################################
+file_path = "synthetic_traces/traces/trace-large-5.txt"
+trace_list = read_trace_file(file_path)
+print("TRACE LIST", file_path, trace_list)
+
+sequences = extract_traces(trace_list, groups, 'trace-large-5')
+print(f"Extracted sequences for {file_path}")
+for seq in sequences:
+    print(seq)
 # # ####################################################################
-# file_path = "trace-small-10.txt"
-# trace_list = read_trace_file(file_path)
-# print("TRACE LIST", file_path, trace_list)
+file_path = "synthetic_traces/traces/trace-large-10.txt"
+trace_list = read_trace_file(file_path)
+print("TRACE LIST", file_path, trace_list)
 
-# sequences = extract_sequences(trace_list, groups, 'trace-small-10')
-# print(f"Extracted sequences for {file_path}")
-# for seq in sequences:
-#     print(seq)
+sequences = extract_traces(trace_list, groups, 'trace-large-10')
+print(f"Extracted sequences for {file_path}")
+for seq in sequences:
+    print(seq)
 # # ####################################################################
-# file_path = "trace-small-20.txt"
-# trace_list = read_trace_file(file_path)
-# print("TRACE LIST", file_path, trace_list)
+file_path = "synthetic_traces/traces/trace-large-20.txt"
+trace_list = read_trace_file(file_path)
+print("TRACE LIST", file_path, trace_list)
 
-# sequences = extract_sequences(trace_list, groups, 'trace-small-20')
-# print(f"Extracted sequences for {file_path}")
-# for seq in sequences:
-#     print(seq)
+sequences = extract_traces(trace_list, groups, 'trace-large-20')
+print(f"Extracted sequences for {file_path}")
+for seq in sequences:
+    print(seq)
 # # ####################################################################

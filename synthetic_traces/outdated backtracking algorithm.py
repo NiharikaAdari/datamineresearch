@@ -66,6 +66,7 @@ def find_causal_pairs(indices, successors_dict):
                 causal_pairs.add((indices[i], indices[j]))
             if isCausal(indices[j], indices[i], successors_dict):
                 causal_pairs.add((indices[j], indices[i]))
+    print(causal_pairs)
     return causal_pairs
 
 
@@ -118,17 +119,6 @@ def generate_routes_for_group(group_name, groups, successors_dict):
     possible_routes = generate_routes(group_indices, causal_pairs)
     return possible_routes
 
-
-def findgroup(group_names, groups):
-    group_names = group_names.split('-')
-    group_indices = None
-    for group in groups:
-        if group_names[0] in group[0] and group_names[1] in group[1]:
-            group_indices = group[2]
-            break
-    if group_indices is None:
-        return []  # Group not found
-    return group_indices
 
 """
 Constructs a causality graph from the given messages.
@@ -258,141 +248,137 @@ def read_trace_from_file(file_path):
     return [int(index) for index in trace]
 
 
+"""
+Finds causal pairs within a trace using backtracking.
+
+Parameters:
+- trace: The list representing the trace.
+- successors_dict: A dictionary mapping each node to its details and list of successors.
+
+Returns:
+- List of causal pairs found in the trace.
+"""
 
 
+"""
+Finds causal pairs within a trace using backtracking.
 
-def find_binary_pattern(trace, successors_dict, group_name, groups):
+Parameters:
+- trace: The list representing the trace.
+- successors_dict: A dictionary mapping each node to its details and list of successors.
+
+Returns:
+- List of causal pairs found in the trace.
+"""
+def find_binary_pattern(trace, successors_dict):
     causal_pairs = []
     print("initial trace", trace)
 
-    # Generate routes for the given group name
-    group_routes = generate_routes_for_group(group_name, groups, successors_dict)
-    print("Generated routes for group:", group_name)
-    print(group_routes)
 
-    # Track acceptance ratios for each route
-    route_acceptance_ratios = {}
+    """
+    Recursively backtrack to find causal pairs in the trace.
 
-    # Recursively backtrack to find causal pairs in the trace using each route
-    for route_index, route in enumerate(group_routes):
-       
+    Parameters:
+    - start_index: The starting index for searching in the trace.
+    - remaining_trace: The remaining trace to be explored, after removing all the found causal pairs.
 
-        potential_start = []
-        for pair in route:
-            potential_start.append(pair[0])
+    Returns:
+    - True if causal pairs are found and resolve the trace, False otherwise.
+    """
+    def backtrack(start_index, remaining_trace):
 
-
-        print(f"\nTrying route {route_index + 1}/{len(group_routes)}: {route}")
-        #skip route 
-        if trace[0] not in potential_start:
-            print(f"skipping this route, because this trace has different initial node. sliced trace starts with {trace[0]}")
-            continue
+        #when there is nothing left remaining, it successfully resolved the trace (found all pairs)
+        if not remaining_trace:
+            print("Successfully resolved the trace.")
+            return True
         
-        uniquenumbers = set(trace)
-    
-        remaining_trace = trace  # Copy the trace for each route
-        orphaned_nodes = len(remaining_trace)
+        #check initial nodes (first ones in trace)
+        for i in range(start_index, len(remaining_trace)):
+            initial_node = remaining_trace[i]
+            print(f"Trying initial node: {initial_node}")
+
+            #For all nodes that follow. check, if one is causal, find the pair. Remove all instances of pair from trace and proceed.
+            # Skip duplicates or pairs already seen
+
+            printed_end_nodes = set()  # To track printed end nodes
+            for j in range(i + 1, len(remaining_trace)):
+                end_node = remaining_trace[j]
+                if end_node != initial_node and end_node not in printed_end_nodes:
+                    print(f"Checking end node: {end_node}")
+                    printed_end_nodes.add(end_node)
+               
+                if isCausal(initial_node, end_node, successors_dict):
+                    print(f"Found causal pair: ({initial_node}, {end_node})")
+                    causal_pairs.append((initial_node, end_node))
+                    updated_remaining_trace = [node for node in remaining_trace if node not in causal_pairs[-1]]
+
+                    #track how many pairs removed
+                    removed_pairs_count = (len(remaining_trace) - len(updated_remaining_trace)) // 2
+                    counter.update([(initial_node, end_node)] * removed_pairs_count)
+
+                    print(f"Remaining trace after removal: {updated_remaining_trace}")
+
+                    #recursively call the backtrack function with the remaining trace. so the initial will be remainingtrace[i]
+                    if backtrack(i, updated_remaining_trace):
+                        return True
+                    #if it fails, remove the causal pair and try with another
+                    causal_pairs.pop()
+                    counter.subtract([(initial_node, end_node)] * removed_pairs_count)
+                    print("Backtracking...try with another pair")
+
+            # Backtrack if no causal pair found for the current initial node
+            print("Backtracking to previous initial node.")
+            return False
         
-        #keep track of what pairs were used
-        used_pairs = []
+        #if no causal pairs are found, so it's unsuccessful
+        print("No pairs found...")
+        return False
 
-        # Try resolving the trace using the current route
-        for pair in route:
-            
-            if any(num not in uniquenumbers for num in pair):
-                continue
-            print(f"Trying pair: {pair}")
-            # print(remaining_trace)
-            updated_remaining_trace = remove_binary_pattern(pair,remaining_trace)
-            orphaned_nodes -= (len(remaining_trace) - len(updated_remaining_trace))
-            remaining_trace = updated_remaining_trace
-            used_pairs.append(pair)
-            print(f"trace after removal: {remaining_trace}")
+    #start the backtracking
+    counter = Counter()
+    backtrack(0, trace)
+    return causal_pairs, counter
 
-        # Calculate acceptance ratio for the route
-        acceptance_ratio = 1- (orphaned_nodes / len(trace))
-        print("Acceptance ratio:", acceptance_ratio)
 
-        route_acceptance_ratios[route_index] = (used_pairs, acceptance_ratio)
-    return route_acceptance_ratios
 
-def compute_common_causal_pairs(folder_path, output_file, successors_dict, groups):
+
+"""
+Computes common causal pairs from multiple trace files in a folder.
+
+Parameters:
+- folder_path: Path to the folder containing trace files.
+- output_file: Path to the output file to write the results.
+- successors_dict: A dictionary mapping each node to its details and list of successors.
+"""
+def compute_common_causal_pairs(folder_path, output_file, successors_dict):
+    total_counter = Counter()
+
+    for file_name in os.listdir(folder_path):
+        if file_name.endswith(".txt"):
+            file_path = os.path.join(folder_path, file_name)
+            trace = read_trace_from_file(file_path)
+            print("Getting pairs for:", file_path)
+            causal_pairs, counter = find_binary_pattern(trace, successors_dict)
+            total_counter.update(counter)
+
     with open(output_file, 'w') as f:
-        for file_name in os.listdir(folder_path):
-            if file_name.endswith(".txt"):
-                file_path = os.path.join(folder_path, file_name)
-                trace = read_trace_from_file(file_path)
-                print("\nProcessing file:", file_path)
-                
-                # Extract group name from the file name
-                group_name = file_name.split("-")[-2] + "-" + file_name.split("-")[-1].replace(".txt", "")
-                print("\nGroup:", group_name)
-                group_indices = findgroup(group_name, groups)
-                
-                # Find pairs for the extracted group name
-                causal_pairs_info = find_binary_pattern(trace, successors_dict, group_name, groups)
-                sorted_pairs = sorted(causal_pairs_info.items(), key=lambda x: x[1][1], reverse=True)
-                top_pairs_with_ratio_1 = set()
-                top_pairs_without_ratio_1 = set()
-                for route_index, (route, acceptance_ratio) in sorted_pairs:
-                    if acceptance_ratio == 1:
-                        top_pairs_with_ratio_1.add((tuple(route), acceptance_ratio))
-                    elif acceptance_ratio > .8 and len(top_pairs_without_ratio_1) < 5:
-                        top_pairs_without_ratio_1.add((tuple(route), acceptance_ratio))
-        
-                top_pairs_without_ratio_1 = sorted(top_pairs_without_ratio_1, key=lambda x: x[1], reverse=True)
-                f.write(f"-"*25)
-                f.write("\n")
-                f.write(f"File: {file_name},\n Group: {group_name} Indices: {group_indices}\n")
-                
-                # Write pairs with acceptance ratio 1
-                for route, acceptance_ratio in top_pairs_with_ratio_1:
-                    f.write(f"BinaryPatterns: {route}, Acceptance Ratio: {acceptance_ratio}\n")
-                # Write top 5 pairs without ratio 1
-                for route, acceptance_ratio in top_pairs_without_ratio_1:
-                    f.write(f"BinaryPatterns: {route}, Acceptance Ratio: {acceptance_ratio}\n")
-                f.write(f"-"*25)
-                print("Processing completed for file:", file_path)
+        for pair, count in total_counter.most_common():
+            f.write(f"{pair[0]} {pair[1]} : {count}\n")
 
-    print(f"Results written to {output_file}")
+    print(f"Most common causal pairs written to {output_file}")
 
+# def compute_common_causal_pairs_from_file(trace_file, successors_dict):
+#     total_counter = Counter()
 
+#     trace = read_trace_from_file(trace_file)
+#     causal_pairs = find_causal_pairs(trace, successors_dict)
+#     total_counter.update(causal_pairs)
 
-def remove_binary_pattern(pair, trace):
-    # Find all occurrences of the binary pattern and mark them
-    marked_trace = [0] * len(trace)
-    for i in range(len(trace)):
-        if trace[i] == pair[0]:
-            marked_trace[i] = 1
-        elif trace[i] == pair[1]:
-            marked_trace[i] = 2
+#     with open(output_file, 'w') as f:
+#         for pair, count in total_counter.most_common():
+#             print(f"{pair[0]} {pair[1]} : {count}\n")
 
-    # Remove pairs from the trace
-    new_trace = []
-    i = 0
-    pair = -1
-    toremove = []
-    firsthalf = []
-    secondhalf = []
-    remove = 0
-
-    while i < len(trace):
-        if marked_trace[i] == 1:
-            firsthalf.append(i) #add index for first part of potential pair
-            i+=1
-            continue
-        if marked_trace[i] == 2 and len(firsthalf)!=0:
-            if(firsthalf[0] < i): #if the index is before this
-                remove = firsthalf.pop(0) #remove first thing in popped
-            toremove.append(remove) #the index of the first part of the pair
-            toremove.append(i) #the index of the second part of the pair
-
-        else:
-            new_trace.append(trace[i]) #unpaired index, part of pattern but not pair.
-        i+=1
-    new_trace = [trace[i] for i in range(len(trace)) if i not in toremove]
-    return new_trace
-
+    
 
 
 
@@ -402,52 +388,39 @@ if __name__ == "__main__":
     data, initial_nodes, terminating_nodes, successors_dict = construct_causality_graph(messages, sections)
     
     groups = extract_groups_from_msg_file(file_path)
-    for g in groups:
-        print(g)
+    # for g in groups:
+    #     print(g)
 
-
-    ########### testing generating routes
-    # group_name = 'audio-membus'
-    # possible_routes = generate_routes_for_group(group_name, groups, successors_dict)
+    group_name = 'cache0-cpu0'
+    possible_routes = generate_routes_for_group(group_name, groups, successors_dict)
     # print(possible_routes)
 
-    ########### testing removal of pattern from trace
-    # trace = [0, 0, 25, 2, 2, 25, 0, 25, 2, 2, 0, 25, 0, 25, 0, 25, 2, 2, 2, 2]
-    # pair = (25,2)
-    # result = remove_binary_pattern(pair,trace)
-    # print(result)
-
-
     # folder_path = "synthetic_traces/traces/trace-small-5"  
-    # output_file = "synthetic_traces/traces/trace-small-5-binarypatterns.txt"
+    # output_file = "synthetic_traces/traces/trace-small-5-common_subsequences.txt"
     # trace_file = "synthetic_traces/traces/trace-small-5/trace-small-5-cache1-membus.txt"
-    # compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
     # # compute_common_causal_pairs_from_file(trace_file, successors_dict)
 
     # folder_path = "synthetic_traces/traces/trace-small-10"  
-    # output_file = "synthetic_traces/traces/trace-small-10-binarypatterns.txt"
-    # compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
+    # output_file = "synthetic_traces/traces/trace-small-10-common_subsequences.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
-    # folder_path = "synthetic_traces/traces/trace-small-20"  
-    # output_file = "synthetic_traces/traces/trace-small-20-binarypatterns.txt"
-    # compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
-        
-    # folder_path = "synthetic_traces/traces/TESTING"  
-    # output_file = "synthetic_traces/traces/TEST-binarypatterns.txt"
-    # compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
+    folder_path = "synthetic_traces/traces/trace-small-20"  
+    output_file = "synthetic_traces/traces/trace-small-20-common_subsequences.txt"
+    compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
 
     # folder_path = "synthetic_traces/traces/trace-large-5"  
-    # output_file = "synthetic_traces/traces/trace-large-5-binarypatterns.txt"
-    # compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
+    # output_file = "synthetic_traces/traces/trace-large-5-common_subsequences.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
     # folder_path = "synthetic_traces/traces/trace-large-10"  
-    # output_file = "synthetic_traces/traces/trace-large-10-binarypatterns.txt"
-    # compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
+    # output_file = "synthetic_traces/traces/trace-large-10-common_subsequences.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
     # folder_path = "synthetic_traces/traces/trace-large-20"  
-    # output_file = "synthetic_traces/traces/trace-large-20-binarypatterns.txt"
-    # compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
+    # output_file = "synthetic_traces/traces/trace-large-20-common_subsequences.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict)
 
     
 

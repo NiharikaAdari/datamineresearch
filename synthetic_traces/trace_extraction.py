@@ -135,51 +135,51 @@ sequences = extract_traces(trace_list, groups, 'trace-small-5')
 print(f"Extracted sequences for {file_path}")
 for seq in sequences:
     print(seq)
-####################################################################
-file_path = "synthetic_traces/traces/trace-small-10.txt"
-trace_list = read_trace_file(file_path)
-print("TRACE LIST", file_path, trace_list)
+# ####################################################################
+# file_path = "synthetic_traces/traces/trace-small-10.txt"
+# trace_list = read_trace_file(file_path)
+# print("TRACE LIST", file_path, trace_list)
 
-sequences = extract_traces(trace_list, groups, 'trace-small-10')
-print(f"Extracted sequences for {file_path}")
-for seq in sequences:
-    print(seq)
-####################################################################
-file_path = "synthetic_traces/traces/trace-small-20.txt"
-trace_list = read_trace_file(file_path)
-print("TRACE LIST", file_path, trace_list)
+# sequences = extract_traces(trace_list, groups, 'trace-small-10')
+# print(f"Extracted sequences for {file_path}")
+# for seq in sequences:
+#     print(seq)
+# ####################################################################
+# file_path = "synthetic_traces/traces/trace-small-20.txt"
+# trace_list = read_trace_file(file_path)
+# print("TRACE LIST", file_path, trace_list)
 
-sequences = extract_traces(trace_list, groups, 'trace-small-20')
-print(f"Extracted sequences for {file_path}")
-for seq in sequences:
-    print(seq)
-###################################################################
-#Large synthetic traces
-####################################################################
-file_path = "synthetic_traces/traces/trace-large-5.txt"
-trace_list = read_trace_file(file_path)
-print("TRACE LIST", file_path, trace_list)
+# sequences = extract_traces(trace_list, groups, 'trace-small-20')
+# print(f"Extracted sequences for {file_path}")
+# for seq in sequences:
+#     print(seq)
+# ###################################################################
+# #Large synthetic traces
+# ####################################################################
+# file_path = "synthetic_traces/traces/trace-large-5.txt"
+# trace_list = read_trace_file(file_path)
+# print("TRACE LIST", file_path, trace_list)
 
-sequences = extract_traces(trace_list, groups, 'trace-large-5')
-print(f"Extracted sequences for {file_path}")
-for seq in sequences:
-    print(seq)
-# # ####################################################################
-file_path = "synthetic_traces/traces/trace-large-10.txt"
-trace_list = read_trace_file(file_path)
-print("TRACE LIST", file_path, trace_list)
+# sequences = extract_traces(trace_list, groups, 'trace-large-5')
+# print(f"Extracted sequences for {file_path}")
+# for seq in sequences:
+#     print(seq)
+# # # ####################################################################
+# file_path = "synthetic_traces/traces/trace-large-10.txt"
+# trace_list = read_trace_file(file_path)
+# print("TRACE LIST", file_path, trace_list)
 
-sequences = extract_traces(trace_list, groups, 'trace-large-10')
-print(f"Extracted sequences for {file_path}")
-for seq in sequences:
-    print(seq)
-# # ####################################################################
-file_path = "synthetic_traces/traces/trace-large-20.txt"
-trace_list = read_trace_file(file_path)
-print("TRACE LIST", file_path, trace_list)
+# sequences = extract_traces(trace_list, groups, 'trace-large-10')
+# print(f"Extracted sequences for {file_path}")
+# for seq in sequences:
+#     print(seq)
+# # # ####################################################################
+# file_path = "synthetic_traces/traces/trace-large-20.txt"
+# trace_list = read_trace_file(file_path)
+# print("TRACE LIST", file_path, trace_list)
 
-sequences = extract_traces(trace_list, groups, 'trace-large-20')
-print(f"Extracted sequences for {file_path}")
-for seq in sequences:
-    print(seq)
-# # ####################################################################
+# sequences = extract_traces(trace_list, groups, 'trace-large-20')
+# print(f"Extracted sequences for {file_path}")
+# for seq in sequences:
+#     print(seq)
+# # # ####################################################################

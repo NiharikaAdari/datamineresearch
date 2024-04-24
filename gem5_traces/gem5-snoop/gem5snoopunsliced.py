@@ -70,7 +70,7 @@ def extract_sequences(traces, groups, folder_name_prefix):
 
 # Main code
 if __name__ == "__main__":
-    msg_file_path = "gem5_traces/defSnoop-RubelPrintFormat.msg"
+    msg_file_path = "gem5_traces/gem5-snoop/defSnoop-RubelPrintFormat.msg"
     trace_file_path = "gem5_traces/snoopunsliced-RubelPrintFormat.jbl"
 
     groups = extract_groups_from_msg_file(msg_file_path)

@@ -81,6 +81,11 @@ def generate_routes(indices, pairs, successors_dict):
 
         unused_index = set(indices) - used_indices
         if (((len(current_route) == len(indices) // 2) and (len(unused_index) == 0) )):
+            print("eys")
+            #if its an odd number, note what index wasn't used 
+            if(len(indices)%2!=0):
+                current_route.append(unused_index)
+                print(current_route)
             routes.append(current_route)
             return
 
@@ -108,11 +113,31 @@ def generate_routes(indices, pairs, successors_dict):
             used_indices.remove(pair[0])
             used_indices.remove(pair[1])
         if(not flag):
+            # print("no more pairs could be tried")
+            #if its an odd number, note what index wasn't used 
+            if(len(indices)%2!=0):
+                current_route.append(unused_index)
+                print(current_route)
             routes.append(current_route)
             return
 
     backtrack([],pairs)
-
+    # handle odd length of indices
+    if len(indices) % 2 == 1:  
+        all_routes = []
+        for route in routes:
+            print("route", route)
+            unusedindex = list(route[-1])
+            for i in range(len(unusedindex)):
+                print(unusedindex[i])
+                causal_pairs_unusedindex = get_causal_pairs_for_index(unusedindex[i], successors_dict) #get all causal pairs for the unused index
+                print("pairs", causal_pairs_unusedindex)
+                for pair in causal_pairs_unusedindex:
+                    newroute = route[:-1] #don't need to track the unused index anymore, delete it 
+                    newroute.append(pair) #append the pair to the route
+                    print("newroute", newroute)
+                    all_routes.append(newroute)
+        return all_routes
     return routes
 
 
@@ -322,7 +347,7 @@ def find_binary_pattern(trace, successors_dict, group_name, groups):
             orphaned_nodes -= (len(remaining_trace) - len(updated_remaining_trace))
             remaining_trace = updated_remaining_trace
             used_pairs.append(pair)
-            # print(f"trace after removal: {remaining_trace}")
+            print(f"trace after removal: {remaining_trace}")
 
         # Calculate acceptance ratio for the route
         acceptance_ratio = 1- (orphaned_nodes / len(trace))
@@ -421,12 +446,11 @@ if __name__ == "__main__":
         print(g)
 
 
-    # ########### testing generating routes
-    # group_name = 'cpu0-dcache0'
-    # trace = read_trace_from_file('gem5_traces/gem5-snoop/unslicedtrace-1/unsliced-' + group_name + '.txt')
-    # possible_routes = generate_routes_for_group(group_name, trace, successors_dict)
-    # print(possible_routes)
-    # print(len(possible_routes))
+    ########### testing generating routes
+    group_name = 'cpu0-dcache0'
+    trace = read_trace_from_file('gem5_traces/gem5-snoop/unslicedtrace-1/unsliced-' + group_name + '.txt')
+    possible_routes = generate_routes_for_group(group_name, trace, successors_dict)
+    print(possible_routes)
 
 
     ########### testing removal of pattern from trace
@@ -436,9 +460,9 @@ if __name__ == "__main__":
     # print(result)
 
 
-    folder_path = "gem5_traces/gem5-snoop/unslicedtrace-1 copy"
-    output_file = "gem5_traces/gem5-snoop/unslicedtrace-1-binarypatterns.txt"
-    compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
+    # folder_path = "gem5_traces/gem5-snoop/unslicedtrace-1 copy"
+    # output_file = "gem5_traces/gem5-snoop/unslicedtrace-1-binarypatterns.txt"
+    # compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
 
 
 

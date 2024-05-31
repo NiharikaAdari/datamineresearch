@@ -368,7 +368,7 @@ if __name__ == "__main__":
     # print(result)
 
 
-    folder_path = "gem5_traces/gem5-snoop/unslicedtrace-1 copy"
+    folder_path = "gem5_traces/gem5-snoop/unslicedtrace-1 copy (testing)"
     output_folder = "gem5_traces/gem5-snoop/unslicedtrace-1-binarypatterns"
     compute_common_causal_pairs(folder_path, output_folder, successors_dict, groups)
 

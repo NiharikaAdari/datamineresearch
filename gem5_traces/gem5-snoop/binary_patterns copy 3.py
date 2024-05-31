@@ -71,8 +71,60 @@ def find_causal_pairs(indices, successors_dict):
     return causal_pairs
 
 
+#Use memoization to store the possible routes of pairs to explore
+def generate_routes(indices, pairs, successors_dict):
+    routes = []
+    used_indices = set()
+    memo = {}
+
+    def backtrack(current_route, pairs):
+
+        unused_index = set(indices) - used_indices
+        if (((len(current_route) == len(indices) // 2) and (len(unused_index) == 0) )):
+            routes.append(current_route)
+            return
+
+        last_index = current_route[-1][1] if current_route else None
+
+        flag = 0
+        for pair in pairs:
+            if pair[0] == last_index or pair[1] == last_index:
+                continue
+
+            if pair[0] in used_indices or pair[1] in used_indices:
+                continue
+
+            
+            used_indices.add(pair[0])
+            used_indices.add(pair[1])
+            
+            new_route = tuple(sorted(current_route + [pair]))
+            if new_route not in memo:
+                flag = 1
+                memo[new_route] = True
+                pairs = pairs - {pair}
+                backtrack(current_route + [pair],pairs)
+
+            used_indices.remove(pair[0])
+            used_indices.remove(pair[1])
+        if(not flag):
+            routes.append(current_route)
+            return
+
+    backtrack([],pairs)
+
+    return routes
 
 
+def generate_routes_for_group(group_name, trace, successors_dict):
+    group_indices = list(set(trace))
+
+    causal_pairs = find_causal_pairs(group_indices, successors_dict)
+    print(group_indices)
+    print(causal_pairs)
+    
+    possible_routes = generate_routes(group_indices, causal_pairs, successors_dict)
+    return possible_routes
 
 
 def findgroup(group_names, groups):
@@ -222,81 +274,62 @@ def read_trace_from_file(file_path):
 
 
 
-class Node:
-    def __init__(self, remaining_trace, used_pairs=None, acceptance_ratio=None, route_index=None, used_nodes=None):
-        self.remaining_trace = remaining_trace
-        self.used_pairs = used_pairs or []
-        self.acceptance_ratio = acceptance_ratio
-        self.route_index = route_index
-        self.used_nodes = used_nodes or []
 
 
-def find_binary_pattern(trace, successors_dict, group_name, groups, pairs):
+def find_binary_pattern(trace, successors_dict, group_name, groups):
+    causal_pairs = []
+    print("initial trace", trace)
+
+    # Generate routes for the given group name
+    group_routes = generate_routes_for_group(group_name, trace, successors_dict)
+    print("Generated routes for group:", group_name)
+    print(group_routes, len(group_routes))
+
+    # Track acceptance ratios for each route
     route_acceptance_ratios = {}
 
-    # Get the pairs list from indices
-    group_indices = list(set(trace))
-    causal_pairs = find_causal_pairs(group_indices, successors_dict)
-    print("causal pairs")
+    # Recursively backtrack to find causal pairs in the trace using each route
+    for route_index, route in enumerate(group_routes):
+       
+
+        potential_start = []
+        for pair in route:
+            potential_start.append(pair[0])
 
 
-    class Node:
-        def __init__(self, remaining_trace, used_pairs=None, acceptance_ratio=None, used_nodes=None):
-            self.remaining_trace = remaining_trace
-            self.used_pairs = used_pairs if used_pairs else []
-            self.acceptance_ratio = acceptance_ratio
-            self.used_nodes = used_nodes if used_nodes else []
-
-
-    root = Node(trace)
-
-
-    def calculate_acceptance_ratio(remaining_trace, original_trace):
+        print(f"\nTrying route {route_index + 1}/{len(group_routes)}: {route}")
+        #skip route 
+        if trace[0] not in potential_start:
+            # print(f"skipping this route, because this trace has different initial node. sliced trace starts with {trace[0]}")
+            continue
+        
+        uniquenumbers = set(trace)
+    
+        remaining_trace = trace  # Copy the trace for each route
         orphaned_nodes = len(remaining_trace)
-        return 1 - (orphaned_nodes / len(original_trace))
+        
+        #keep track of what pairs were used
+        used_pairs = []
 
-
-    def explore_node(node):
-        flag = 0
-        seen = []
-        for index, value in enumerate(node.remaining_trace):
-            if value in node.used_nodes:  # Skip exploring if value is part of used nodes
+        # Try resolving the trace using the current route
+        for pair in route:
+            
+            if any(num not in uniquenumbers for num in pair):
                 continue
-            if value in seen:
-                continue
-            seen.append(value)
-            for pair in causal_pairs:
-                if pair[0] == value:
-                    if(pair[0] in node.used_nodes or pair[1] in node.used_nodes):
-                        continue
-                    updated_remaining_trace = remove_binary_pattern(pair, node.remaining_trace)
-                    if len(updated_remaining_trace) == len(node.remaining_trace):
-                        continue
-                    flag = 1
+            # print(f"Trying pair: {pair}")
+            # print(remaining_trace)
+            updated_remaining_trace = remove_binary_pattern(pair,remaining_trace)
+            orphaned_nodes -= (len(remaining_trace) - len(updated_remaining_trace))
+            remaining_trace = updated_remaining_trace
+            used_pairs.append(pair)
+            # print(f"trace after removal: {remaining_trace}")
 
-                    new_used_pairs = node.used_pairs + [pair]
-                    child_node = Node(remaining_trace=updated_remaining_trace, used_pairs=new_used_pairs, used_nodes=node.used_nodes)
-                    child_node.used_nodes.append(pair[0])
-                    child_node.used_nodes.append(pair[1])
-                    explore_node(child_node)
-                    
-                    
-            if(flag==1):
-                break
-                    
-        # Leaf node
-        if(flag==0):
-            # print("leaf:\nremainingtrace:", node.remaining_trace)
-            node.acceptance_ratio = calculate_acceptance_ratio(node.remaining_trace, trace)
-            print("acceptance", node.acceptance_ratio)
-            route_acceptance_ratios[len(route_acceptance_ratios)] = (node.used_pairs, node.acceptance_ratio)
-            print((node.used_pairs, node.acceptance_ratio))
+        # Calculate acceptance ratio for the route
+        acceptance_ratio = 1- (orphaned_nodes / len(trace))
+        # print("Acceptance ratio:", acceptance_ratio)
 
-    explore_node(root)
+        route_acceptance_ratios[route_index] = (used_pairs, acceptance_ratio)
     return route_acceptance_ratios
-
-
-
 
 def compute_common_causal_pairs(folder_path, output_file, successors_dict, groups):
     with open(output_file, 'w') as f:
@@ -309,24 +342,23 @@ def compute_common_causal_pairs(folder_path, output_file, successors_dict, group
                 # Extract group name from the file name
                 group_name = file_name.split("-")[-2] + "-" + file_name.split("-")[-1].replace(".txt", "")
                 print("\nGroup:", group_name)
+                group_indices = findgroup(group_name, groups)
                 
                 # Find pairs for the extracted group name
-                group_indices = list(set(trace))
-                causal_pairs = find_causal_pairs(group_indices, successors_dict)
-
-                causal_pairs_info = find_binary_pattern(trace, successors_dict, group_name, groups, causal_pairs)
+                causal_pairs_info = find_binary_pattern(trace, successors_dict, group_name, groups)
                 sorted_pairs = sorted(causal_pairs_info.items(), key=lambda x: x[1][1], reverse=True)
                 top_pairs_with_ratio_1 = set()
                 top_pairs_without_ratio_1 = set()
                 for route_index, (route, acceptance_ratio) in sorted_pairs:
                     if acceptance_ratio == 1:
                         top_pairs_with_ratio_1.add((tuple(route), acceptance_ratio))
-                    elif acceptance_ratio > 0 and len(top_pairs_without_ratio_1) < 5:
+                    elif acceptance_ratio > .8 and len(top_pairs_without_ratio_1) < 5:
                         top_pairs_without_ratio_1.add((tuple(route), acceptance_ratio))
         
                 top_pairs_without_ratio_1 = sorted(top_pairs_without_ratio_1, key=lambda x: x[1], reverse=True)
-                f.write("-" * 25 + "\n")
-                f.write(f"File: {file_name}, Group: {group_name}, Indices: {group_indices}\n")
+                f.write(f"-"*25)
+                f.write("\n")
+                f.write(f"File: {file_name},\n Group: {group_name} Indices: {group_indices}\n")
                 
                 # Write pairs with acceptance ratio 1
                 for route, acceptance_ratio in top_pairs_with_ratio_1:
@@ -334,7 +366,7 @@ def compute_common_causal_pairs(folder_path, output_file, successors_dict, group
                 # Write top 5 pairs without ratio 1
                 for route, acceptance_ratio in top_pairs_without_ratio_1:
                     f.write(f"BinaryPatterns: {route}, Acceptance Ratio: {acceptance_ratio}\n")
-                f.write("-" * 25 + "\n")
+                f.write(f"-"*25)
                 print("Processing completed for file:", file_path)
 
     print(f"Results written to {output_file}")
@@ -343,7 +375,7 @@ def compute_common_causal_pairs(folder_path, output_file, successors_dict, group
 
 def remove_binary_pattern(pair, trace):
     # Find all occurrences of the binary pattern and mark them
-    marked_trace = [0] * len(trace)
+    marked_trace = [-1] * len(trace)
     for i in range(len(trace)):
         if trace[i] == pair[0]:
             marked_trace[i] = 1
@@ -354,25 +386,26 @@ def remove_binary_pattern(pair, trace):
     new_trace = []
     i = 0
     pair = -1
-    toremove = []
+    toremove = set()
     firsthalf = []
-    secondhalf = []
-    remove = 0
+   
 
     while i < len(trace):
+        #add index for first part of potential pair
         if marked_trace[i] == 1:
-            firsthalf.append(i) #add index for first part of potential pair
+            firsthalf.append(i) 
             i+=1
             continue
         if marked_trace[i] == 2 and len(firsthalf)!=0:
-            if(firsthalf[0] < i): #if the index is before this
-                remove = firsthalf.pop(0) #remove first thing in popped
-            toremove.append(remove) #the index of the first part of the pair
-            toremove.append(i) #the index of the second part of the pair
-
-        else:
-            new_trace.append(trace[i]) #unpaired index, part of pattern but not pair.
+            #if the index is before this
+            if(firsthalf[0] < i): 
+                remove = firsthalf.pop(0) #pop and track the index 
+                toremove.add(remove) #the index of the first part of the pair
+                toremove.add(i) #the index of the second part of the pair    
         i+=1
+
+    
+
     new_trace = [trace[i] for i in range(len(trace)) if i not in toremove]
     return new_trace
 
@@ -387,6 +420,14 @@ if __name__ == "__main__":
     groups = extract_groups_from_msg_file(file_path)
     for g in groups:
         print(g)
+
+
+    # ########### testing generating routes
+    # group_name = 'cpu0-dcache0'
+    # trace = read_trace_from_file('gem5_traces/gem5-snoop/unslicedtrace-1/unsliced-' + group_name + '.txt')
+    # possible_routes = generate_routes_for_group(group_name, trace, successors_dict)
+    # print(possible_routes)
+    # print(len(possible_routes))
 
 
     ########### testing removal of pattern from trace

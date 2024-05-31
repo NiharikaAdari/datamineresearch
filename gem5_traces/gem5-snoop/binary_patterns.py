@@ -277,105 +277,98 @@ def read_trace_from_file(file_path):
 
 
 def find_binary_pattern(trace, successors_dict, group_name, groups):
-    causal_pairs = []
+    group_indices = list(set(trace))
     print("initial trace", trace)
 
     # Generate routes for the given group name
-    group_routes = generate_routes_for_group(group_name, trace, successors_dict)
-    print("Generated routes for group:", group_name)
-    print(group_routes)
+    causal_pairs = find_causal_pairs(group_indices, successors_dict)
+    print("Generated pairs for group:", group_name)
+    print(causal_pairs)
 
-    # Track acceptance ratios for each route
-    route_acceptance_ratios = {}
+    # List to track acceptance ratios for each pair
+    pair_acceptance_ratios = []
 
-    # Recursively backtrack to find causal pairs in the trace using each route
-    for route_index, route in enumerate(group_routes):
-       
+    while causal_pairs:
+        used_numbers = set()
+        remaining_trace = trace[:]  # Copy the trace for each pass
+        pairs_to_remove = []
 
-        potential_start = []
-        for pair in route:
-            potential_start.append(pair[0])
+        for pair_index, pair in enumerate(causal_pairs):
+            print(f"\nTrying pair {pair_index + 1}/{len(causal_pairs)}: {pair}")
 
-
-        print(f"\nTrying route {route_index + 1}/{len(group_routes)}: {route}")
-        #skip route 
-        if trace[0] not in potential_start:
-            print(f"skipping this route, because this trace has different initial node. sliced trace starts with {trace[0]}")
-            continue
-        
-        uniquenumbers = set(trace)
-    
-        remaining_trace = trace  # Copy the trace for each route
-        orphaned_nodes = len(remaining_trace)
-        
-        #keep track of what pairs were used
-        used_pairs = []
-
-        # Try resolving the trace using the current route
-        for pair in route:
-            
-            if any(num not in uniquenumbers for num in pair):
+            # Skip pair if it has already used numbers
+            if pair[0] in used_numbers or pair[1] in used_numbers:
                 continue
-            print(f"Trying pair: {pair}")
-            # print(remaining_trace)
-            updated_remaining_trace = remove_binary_pattern(pair,remaining_trace)
-            orphaned_nodes -= (len(remaining_trace) - len(updated_remaining_trace))
-            remaining_trace = updated_remaining_trace
-            used_pairs.append(pair)
-            # print(f"trace after removal: {remaining_trace}")
 
-        # Calculate acceptance ratio for the route
-        acceptance_ratio = 1- (orphaned_nodes / len(trace))
-        print("Acceptance ratio:", acceptance_ratio)
+            updated_remaining_trace = remove_binary_pattern(pair, remaining_trace)
+            remaining_count = Counter(updated_remaining_trace)
+            original_count = Counter(remaining_trace)
+            orphans = remaining_count[pair[0]] + remaining_count[pair[1]]
+            original = original_count[pair[0]] + original_count[pair[1]]
 
-        route_acceptance_ratios[route_index] = (used_pairs, acceptance_ratio)
-    return route_acceptance_ratios
+            # Calculate acceptance ratio for the pair
+            acceptance_ratio = 1 - (orphans / original)
+            print("Acceptance ratio:", acceptance_ratio)
 
-def compute_common_causal_pairs(folder_path, output_file, successors_dict, groups):
-    with open(output_file, 'w') as f:
-        for file_name in os.listdir(folder_path):
-            if file_name.endswith(".txt"):
-                file_path = os.path.join(folder_path, file_name)
-                trace = read_trace_from_file(file_path)
-                print("\nProcessing file:", file_path)
-                
-                # Extract group name from the file name
-                group_name = file_name.split("-")[-2] + "-" + file_name.split("-")[-1].replace(".txt", "")
-                print("\nGroup:", group_name)
-                group_indices = findgroup(group_name, groups)
-                
-                # Find pairs for the extracted group name
-                causal_pairs_info = find_binary_pattern(trace, successors_dict, group_name, groups)
-                sorted_pairs = sorted(causal_pairs_info.items(), key=lambda x: x[1][1], reverse=True)
-                top_pairs_with_ratio_1 = set()
-                top_pairs_without_ratio_1 = set()
-                for route_index, (route, acceptance_ratio) in sorted_pairs:
-                    if acceptance_ratio == 1:
-                        top_pairs_with_ratio_1.add((tuple(route), acceptance_ratio))
-                    elif acceptance_ratio > .8 and len(top_pairs_without_ratio_1) < 5:
-                        top_pairs_without_ratio_1.add((tuple(route), acceptance_ratio))
-        
-                top_pairs_without_ratio_1 = sorted(top_pairs_without_ratio_1, key=lambda x: x[1], reverse=True)
-                f.write(f"-"*25)
-                f.write("\n")
+            # Append the pair and its acceptance ratio to the list
+            pair_acceptance_ratios.append((pair, acceptance_ratio))
+
+            # Update used numbers and remaining trace
+            used_numbers.update(pair)
+           
+
+            # Mark pair for removal
+            pairs_to_remove.append(pair)
+
+        # Remove used pairs from the list
+        causal_pairs = [pair for pair in causal_pairs if pair not in pairs_to_remove]
+
+    print(pair_acceptance_ratios, len(pair_acceptance_ratios))
+    return pair_acceptance_ratios
+
+def compute_common_causal_pairs(folder_path, output_folder, successors_dict, groups):
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+
+    for file_name in os.listdir(folder_path):
+        if file_name.endswith(".txt"):
+            file_path = os.path.join(folder_path, file_name)
+            trace = read_trace_from_file(file_path)
+            print("\nProcessing file:", file_path)
+
+            # Extract group name from the file name
+            group_name = "-".join(file_name.split("-")[-2:]).replace(".txt", "")
+            print("\nGroup:", group_name)
+            group_indices = findgroup(group_name, groups)
+
+            # Find pairs for the extracted group name
+            causal_pairs_info = find_binary_pattern(trace, successors_dict, group_name, groups)
+
+            # Filter and sort pairs based on acceptance ratio
+            filtered_pairs = [(pair, ratio) for pair, ratio in causal_pairs_info if ratio > 0.5]
+            sorted_pairs = sorted(filtered_pairs, key=lambda x: x[1], reverse=True)
+
+            # Write results to a separate file for each group
+            output_file_path = os.path.join(output_folder, f"{group_name}.txt")
+            with open(output_file_path, 'w') as f:
+                f.write(f"{'-' * 25}\n")
                 f.write(f"File: {file_name},\n Group: {group_name} Indices: {group_indices}\n")
-                
-                # Write pairs with acceptance ratio 1
-                for route, acceptance_ratio in top_pairs_with_ratio_1:
-                    f.write(f"BinaryPatterns: {route}, Acceptance Ratio: {acceptance_ratio}\n")
-                # Write top 5 pairs without ratio 1
-                for route, acceptance_ratio in top_pairs_without_ratio_1:
-                    f.write(f"BinaryPatterns: {route}, Acceptance Ratio: {acceptance_ratio}\n")
-                f.write(f"-"*25)
+
+                for pair, acceptance_ratio in sorted_pairs:
+                    f.write(f"BinaryPatterns: {pair}, Acceptance Ratio: {acceptance_ratio}\n")
+
+                f.write(f"{'-' * 25}\n")
                 print("Processing completed for file:", file_path)
 
-    print(f"Results written to {output_file}")
+    print(f"Results written to {output_folder}")
+
+
 
 
 
 def remove_binary_pattern(pair, trace):
     # Find all occurrences of the binary pattern and mark them
-    marked_trace = [0] * len(trace)
+    marked_trace = [-1] * len(trace)
     for i in range(len(trace)):
         if trace[i] == pair[0]:
             marked_trace[i] = 1
@@ -386,25 +379,26 @@ def remove_binary_pattern(pair, trace):
     new_trace = []
     i = 0
     pair = -1
-    toremove = []
+    toremove = set()
     firsthalf = []
-    secondhalf = []
-    remove = 0
+   
 
     while i < len(trace):
+        #add index for first part of potential pair
         if marked_trace[i] == 1:
-            firsthalf.append(i) #add index for first part of potential pair
+            firsthalf.append(i) 
             i+=1
             continue
         if marked_trace[i] == 2 and len(firsthalf)!=0:
-            if(firsthalf[0] < i): #if the index is before this
-                remove = firsthalf.pop(0) #remove first thing in popped
-            toremove.append(remove) #the index of the first part of the pair
-            toremove.append(i) #the index of the second part of the pair
-
-        else:
-            new_trace.append(trace[i]) #unpaired index, part of pattern but not pair.
+            #if the index is before this
+            if(firsthalf[0] < i): 
+                remove = firsthalf.pop(0) #pop and track the index 
+                toremove.add(remove) #the index of the first part of the pair
+                toremove.add(i) #the index of the second part of the pair    
         i+=1
+
+    
+
     new_trace = [trace[i] for i in range(len(trace)) if i not in toremove]
     return new_trace
 
@@ -430,15 +424,14 @@ if __name__ == "__main__":
 
 
     ########### testing removal of pattern from trace
-    # trace = [0, 0, 25, 2, 2, 25, 0, 25, 2, 2, 0, 25, 0, 25, 0, 25, 2, 2, 2, 2]
-    # pair = (25,2)
+    # trace = read_trace_from_file('gem5_traces/gem5-snoop/unslicedtrace-1 copy/unsliced-cpu0-icache0.txt')
+    # pair = (0,9)
     # result = remove_binary_pattern(pair,trace)
     # print(result)
 
 
     folder_path = "gem5_traces/gem5-snoop/unslicedtrace-1 copy"
-    output_file = "gem5_traces/gem5-snoop/unslicedtrace-1-binarypatterns.txt"
-    compute_common_causal_pairs(folder_path, output_file, successors_dict, groups)
-
+    output_folder = "gem5_traces/gem5-snoop/unslicedtrace-1-binarypatterns"
+    compute_common_causal_pairs(folder_path, output_folder, successors_dict, groups)
 
 

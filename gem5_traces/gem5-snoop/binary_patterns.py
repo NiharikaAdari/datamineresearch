@@ -71,62 +71,6 @@ def find_causal_pairs(indices, successors_dict):
     return causal_pairs
 
 
-#Use memoization to store the possible routes of pairs to explore
-def generate_routes(indices, pairs, successors_dict):
-    routes = []
-    used_indices = set()
-    memo = {}
-
-    def backtrack(current_route, pairs):
-
-        unused_index = set(indices) - used_indices
-        if (((len(current_route) == len(indices) // 2) and (len(unused_index) == 0) )):
-            routes.append(current_route)
-            return
-
-        last_index = current_route[-1][1] if current_route else None
-
-        flag = 0
-        for pair in pairs:
-            if pair[0] == last_index or pair[1] == last_index:
-                continue
-
-            if pair[0] in used_indices or pair[1] in used_indices:
-                continue
-
-            
-            used_indices.add(pair[0])
-            used_indices.add(pair[1])
-            
-            new_route = tuple(sorted(current_route + [pair]))
-            if new_route not in memo:
-                flag = 1
-                memo[new_route] = True
-                pairs = pairs - {pair}
-                backtrack(current_route + [pair],pairs)
-
-            used_indices.remove(pair[0])
-            used_indices.remove(pair[1])
-        if(not flag):
-            routes.append(current_route)
-            return
-
-    backtrack([],pairs)
-
-    return routes
-
-
-def generate_routes_for_group(group_name, trace, successors_dict):
-    group_indices = list(set(trace))
-
-    causal_pairs = find_causal_pairs(group_indices, successors_dict)
-    print(group_indices)
-    print(causal_pairs)
-    
-    possible_routes = generate_routes(group_indices, causal_pairs, successors_dict)
-    return possible_routes
-
-
 def findgroup(group_names, groups):
     group_names = group_names.split('-')
     group_indices = None
@@ -415,12 +359,6 @@ if __name__ == "__main__":
         print(g)
 
 
-    # ########### testing generating routes
-    # group_name = 'cpu0-dcache0'
-    # trace = read_trace_from_file('gem5_traces/gem5-snoop/unslicedtrace-1/unsliced-' + group_name + '.txt')
-    # possible_routes = generate_routes_for_group(group_name, trace, successors_dict)
-    # print(possible_routes)
-    # print(len(possible_routes))
 
 
     ########### testing removal of pattern from trace

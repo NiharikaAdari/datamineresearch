@@ -218,7 +218,17 @@ def read_trace_from_file(file_path):
 
 
 
-
+"""
+Finds binary patterns within a trace for a given group.
+    Parameters:
+    - trace: List of integers representing the trace.
+    - successors_dict: Dictionary mapping each index to its successors.
+    - group_name: Name of the group to find patterns for.
+    - groups: List of groups to search within.
+    
+    Returns:
+    - pair_acceptance_ratios: List of tuples representing pairs and their acceptance ratios.
+"""
 
 def find_binary_pattern(trace, successors_dict, group_name, groups):
     group_indices = list(set(trace))
@@ -270,6 +280,15 @@ def find_binary_pattern(trace, successors_dict, group_name, groups):
     print(pair_acceptance_ratios, len(pair_acceptance_ratios))
     return pair_acceptance_ratios
 
+
+"""
+Computes common causal pairs from traces in a folder and writes results to an output folder.
+    Parameters:
+    - folder_path: Path to the folder containing trace files.
+    - output_folder: Path to the output folder to write results.
+    - successors_dict: Dictionary mapping each index to its successors.
+    - groups: List of groups to search within.
+"""
 def compute_common_causal_pairs(folder_path, output_folder, successors_dict, groups):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -308,7 +327,15 @@ def compute_common_causal_pairs(folder_path, output_folder, successors_dict, gro
 
 
 
-
+"""
+Removes a binary pattern from a trace.
+    Parameters:
+    - pair: A tuple representing the binary pattern to remove.
+    - trace: List of integers representing the trace.
+    
+    Returns:
+    - new_trace: A new list representing the trace with the binary pattern removed.
+"""
 
 def remove_binary_pattern(pair, trace):
     # Find all occurrences of the binary pattern and mark them

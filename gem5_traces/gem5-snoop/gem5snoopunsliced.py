@@ -31,7 +31,6 @@ def extract_groups_from_msg_file(file_path):
 # Read in the trace file from a jbl file
 def read_trace_file(trace_file):
     traces = joblib.load(trace_file)
-    # traces = [['0', '9'], ['1', '2', '3', '4', '5', '6', '7', '8'], ['0', '9'],['10', '19']] test
     return traces
 
 

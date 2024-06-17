@@ -145,7 +145,7 @@ def find_acceptance_ratios(trace, patterns):
     print("initial trace", trace)
 
     # List to track acceptance ratios for each pair
-    pair_acceptance_ratios = []
+    pattern_acceptance_ratios = []
 
     while patterns:
         used_numbers = set()
@@ -176,7 +176,7 @@ def find_acceptance_ratios(trace, patterns):
                 print("pattern",pattern, "dne")
 
             # Append the pattern and its acceptance ratio to the list
-            pair_acceptance_ratios.append((pattern, acceptance_ratio))
+            pattern_acceptance_ratios.append((pattern, acceptance_ratio))
 
             # Update used numbers and remaining trace
             used_numbers.update(pattern)
@@ -187,8 +187,8 @@ def find_acceptance_ratios(trace, patterns):
         # Remove used pairs from the list
         patterns = [pattern for pattern in patterns if pattern not in patterns_to_remove]
 
-    print(pair_acceptance_ratios, len(pair_acceptance_ratios))
-    return pair_acceptance_ratios
+    print(pattern_acceptance_ratios, len(pattern_acceptance_ratios))
+    return pattern_acceptance_ratios
 
 
 """

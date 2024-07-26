@@ -4,6 +4,8 @@ from collections import Counter
 import os
 import itertools
 import joblib
+import pickle
+from concurrent.futures import ProcessPoolExecutor
 
 """
 Reads messages from a specified file and organizes them into sections.
@@ -142,7 +144,7 @@ def read_trace_file(trace_file):
 
 def find_acceptance_ratios(trace, patterns):
     
-    print("initial trace", trace)
+    # print("initial trace", trace)
 
     # List to track acceptance ratios for each pair
     pattern_acceptance_ratios = []
@@ -152,20 +154,28 @@ def find_acceptance_ratios(trace, patterns):
         remaining_trace = trace    # Copy the trace for each pass
         patterns_to_remove = []
 
+        break_outer = False
         for pattern_index, pattern in enumerate(patterns):
             print(f"\nTrying pattern {pattern_index + 1}/{len(patterns)}: {pattern}")
-
-            # Skip pair if it has already used numbers
+            print(remaining_trace)
+            # Skip pattern if it has already used numbers to get through unique patterns first before refreshing trace (come back to it later)
             for num in pattern:
                 if num in used_numbers:
-                    continue
-
+                    print("skip pattern")
+                    break_outer = True 
+            if break_outer:
+                break_outer = False
+                continue
+            print("removing:", pattern)
             updated_remaining_trace = remove_pattern_from_trace(remaining_trace, pattern)
            
-            remaining_count = Counter(updated_remaining_trace)
+            remaining_count = Counter(updated_remaining_trace)                                                     
             original_count = Counter(remaining_trace)
             orphans = sum(remaining_count[num] for num in pattern)
             original = sum(original_count[num] for num in pattern)
+
+
+            remaining_trace = updated_remaining_trace
 
             # Calculate acceptance ratio for the pair
             if(original!=0):
@@ -180,6 +190,7 @@ def find_acceptance_ratios(trace, patterns):
 
             # Update used numbers and remaining trace
             used_numbers.update(pattern)
+            print("used numbers: ", used_numbers)
         
             # Mark pair for removal
             patterns_to_remove.append(pattern)
@@ -204,7 +215,7 @@ def compute_pattern_ratios(trace, output_folder, patterns):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    # Find pairs for the extracted group name
+    #Find the acceptance ratio for the list of patterns 
     patterns_info = find_acceptance_ratios(trace, patterns)
 
     # Filter and sort pairs based on acceptance ratio
@@ -251,10 +262,9 @@ def remove_pattern_from_trace(trace, pattern):
     for index, num in enumerate(trace):
         if num in buckets:
             buckets[num].append(index)
-     
-    to_remove = set()
-    i = 0
-    
+    print("buckets", buckets)
+
+    to_remove = set()    
     currentindices = []
 
     #pointer array for pattern indices in buckets (instead of pop)
@@ -264,22 +274,31 @@ def remove_pattern_from_trace(trace, pattern):
     for index in buckets[pattern[0]]:
 
         currentindices = [index]
+        print("current indices: ", currentindices)
+        valid_pattern = True
 
         #check subsequent buckets
         for j in range(1, len(pattern)):
-            # print(pointers, pointers[j])
-            #if bucket exists, and the first index is greater than the last one
-            if pointers[j] < len(buckets[pattern[j]]) and buckets[pattern[j]][pointers[j]] > currentindices[-1]:
+            print("checking bucket of", pattern[j], " in ", pattern)
+
+            # Find the smallest index in the current bucket that is larger than the last index in currentindices, and greater than any already used
+            while pointers[j] < len(buckets[pattern[j]]) and buckets[pattern[j]][pointers[j]] <= currentindices[-1]:
+                print("traversing bucket.", buckets[pattern[j]][pointers[j]], "which is index ", pointers[j])
+                pointers[j] += 1
+
+            #once it finds an index that is greater than the current one, add to the patern
+            if pointers[j] < len(buckets[pattern[j]]):
+                print("index found from bucket.", buckets[pattern[j]][pointers[j]])
                 currentindices.append(buckets[pattern[j]][pointers[j]])
                 pointers[j] += 1
             else:
+                valid_pattern = False
                 break
 
         # If currentindices match the pattern length, add to to_remove set
-        if len(currentindices) == len(pattern):
+        if valid_pattern and len(currentindices) == len(pattern):
+            print("valid pattern found. indices:", currentindices)
             to_remove.update(currentindices)
-        else:
-            break
        
     # Remove the pattern indices from the trace
     new_trace = [trace[i] for i in range(len(trace)) if i not in to_remove]
@@ -309,8 +328,18 @@ if __name__ == "__main__":
     trace = read_trace_from_file('gem5_traces/gem5-snoop/unslicedtrace-1 copy (testing)/test.txt')
     output_folder = "gem5_traces/gem5-snoop/unslicedtrace-1-patterns"
     file = "gem5_traces/gem5-snoop/localPatterns.txt"
-    patterns = [[0,9], [1,2]]
-    compute_pattern_ratios(trace, output_folder, patterns)
+
+
+    # with open('gem5_traces/gem5-snoop/allPatterns.data', 'rb') as f:
+    #    allPatterns = pickle.load(f)
+
+    # patterns = [[0,9], [1,9], [2,3,4]]
+    # compute_pattern_ratios(trace, output_folder, patterns)
+
+
+    
+
+    
 
 
 

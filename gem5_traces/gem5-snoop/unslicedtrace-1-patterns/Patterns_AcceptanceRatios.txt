@@ -1,4 +1,5 @@
 -------------------------
-1. [1, 2], Acceptance Ratio: 0.75
-2. [0, 9], Acceptance Ratio: 0.6666666666666667
+1. [2, 3, 4], Acceptance Ratio: 1.0
+2. [0, 9], Acceptance Ratio: 0.8
+3. [1, 9], Acceptance Ratio: 0.5
 -------------------------

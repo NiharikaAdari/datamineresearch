@@ -149,46 +149,23 @@ def find_acceptance_ratios(trace, patterns):
     # List to track acceptance ratios for each pair
     pattern_acceptance_ratios = []
 
-
-    # Initialize pointers for patterns
-    pointers = list(range(len(patterns)))
-
-
-    while pointers:
-
-        #reset the set of used_numbers
+    while patterns:
         used_numbers = set()
-
-        # restore original trace for each pass
-        remaining_trace = trace[:]    
-
-        # List to track the patterns to be marked as removed
-        patterns_to_remove = set()
-
+        remaining_trace = trace    # Copy the trace for each pass
+        patterns_to_remove = []
 
         break_outer = False
-        pattern_skip_count = 0
-
-        for pointer_index, pointer in enumerate(pointers):
+        for pattern_index, pattern in enumerate(patterns):
             # print(remaining_trace)
-
-            pattern = patterns[pointer]
-
-
             # Skip pattern if it has already used numbers to get through unique patterns first before refreshing trace (come back to it later)
             for num in pattern:
                 if num in used_numbers:
                     # print("skip pattern")
                     break_outer = True 
-                    pattern_skip_count += 1
-            if break_outer and pattern_skip_count <=15:
+            if break_outer:
                 break_outer = False
                 continue
-            elif break_outer:
-                break_outer = False
-                break
-            
-            print(f"\nTrying pattern {pointer_index + 1}/{len(pointers)}: {pattern}")
+            print(f"\nTrying pattern {pattern_index + 1}/{len(patterns)}: {pattern}")
 
             # print("removing:", pattern)
             updated_remaining_trace = remove_pattern_from_trace(remaining_trace, pattern)
@@ -217,12 +194,10 @@ def find_acceptance_ratios(trace, patterns):
             # print("used numbers: ", used_numbers)
         
             # Mark pair for removal
-            patterns_to_remove.add(pointer)
+            patterns_to_remove.append(pattern)
 
-        # Update pointers to exclude removed patterns
-        pointers = [pointer for pointer in pointers if pointer not in patterns_to_remove]
-
-
+        # Remove used pairs from the list
+        patterns = [pattern for pattern in patterns if pattern not in patterns_to_remove]
 
     print(pattern_acceptance_ratios, len(pattern_acceptance_ratios))
     return pattern_acceptance_ratios

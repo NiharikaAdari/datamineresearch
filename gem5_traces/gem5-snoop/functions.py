@@ -145,10 +145,8 @@ def read_trace_file(trace_file):
 def find_acceptance_ratios(trace, patterns):
     
     # print("initial trace", trace)
-    # print("initial trace", trace)
 
     # List to track acceptance ratios for each pair
-    pattern_acceptance_ratios = []
     pattern_acceptance_ratios = []
 
 
@@ -196,14 +194,9 @@ def find_acceptance_ratios(trace, patterns):
             updated_remaining_trace = remove_pattern_from_trace(remaining_trace, pattern)
            
             remaining_count = Counter(updated_remaining_trace)                                                     
-            remaining_count = Counter(updated_remaining_trace)                                                     
             original_count = Counter(remaining_trace)
             orphans = sum(remaining_count[num] for num in pattern)
             original = sum(original_count[num] for num in pattern)
-
-
-            remaining_trace = updated_remaining_trace
-
 
             remaining_trace = updated_remaining_trace
 
@@ -216,7 +209,6 @@ def find_acceptance_ratios(trace, patterns):
                 print("pattern",pattern, "dne")
 
             # Append the pattern and its acceptance ratio to the list
-            pattern_acceptance_ratios.append((pattern, acceptance_ratio))
             pattern_acceptance_ratios.append((pattern, acceptance_ratio))
 
             # Update used numbers and remaining trace
@@ -233,9 +225,6 @@ def find_acceptance_ratios(trace, patterns):
 
     print(pattern_acceptance_ratios, len(pattern_acceptance_ratios))
     return pattern_acceptance_ratios
-    print(pattern_acceptance_ratios, len(pattern_acceptance_ratios))
-    return pattern_acceptance_ratios
-
 
 """
 Computes acceptance ratios of each pattern from a list of patterns on a trace and writes results to an output folder.
@@ -250,7 +239,6 @@ def compute_pattern_ratios(trace, output_folder, patterns):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    #Find the acceptance ratio for the list of patterns 
     #Find the acceptance ratio for the list of patterns 
     patterns_info = find_acceptance_ratios(trace, patterns)
 
@@ -330,8 +318,6 @@ def remove_pattern_from_trace(trace, pattern):
             else:
                 valid_pattern = False
                 break 
-                valid_pattern = False
-                break 
 
         # If currentindices match the pattern length, add to to_remove set
         if valid_pattern and len(currentindices) == len(pattern):
@@ -393,6 +379,7 @@ if __name__ == "__main__":
     # Combine all pattern lists into one giant list
     allPatterns = [pattern for sublist in patterns_by_column for pattern in sublist]
 
+    # allPatterns = [[1,2,3,4], [0,9]]
     # # Iterate through the extracted patterns
     compute_pattern_ratios(trace, output_folder, allPatterns)
 

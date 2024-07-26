@@ -293,7 +293,7 @@ def remove_pattern_from_trace(trace, pattern):
                 pointers[j] += 1
             else:
                 valid_pattern = False
-                break
+                break 
 
         # If currentindices match the pattern length, add to to_remove set
         if valid_pattern and len(currentindices) == len(pattern):
